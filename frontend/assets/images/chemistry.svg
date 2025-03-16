@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .chem-element {
+            fill: none;
+            stroke: #00E5FF;
+            stroke-width: 2;
+        }
+        .chem-text {
+            fill: #00E5FF;
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+        }
+        .molecule {
+            fill: none;
+            stroke: #00E5FF;
+            stroke-width: 1.5;
+        }
+    </style>
+
+    <!-- Beaker -->
+    <path class="chem-element" d="
+        M30,20 
+        L30,80 
+        Q30,100 50,100 
+        L70,100 
+        Q90,100 90,80 
+        L90,20 
+        L80,20 
+        L80,80 
+        Q80,90 70,90 
+        L50,90 
+        Q40,90 40,80 
+        L40,20 
+        Z" />
+    
+    <!-- Liquid Level -->
+    <path class="chem-element" d="M35,60 L85,60" 
+        style="stroke-dasharray: 2,2;" />
+
+    <!-- Bubbles -->
+    <circle class="chem-element" cx="45" cy="50" r="3" />
+    <circle class="chem-element" cx="60" cy="45" r="2" />
+    <circle class="chem-element" cx="75" cy="55" r="4" />
+
+    <!-- Molecular Structure -->
+    <g class="molecule">
+        <!-- Carbon Ring -->
+        <path d="M60,20 L70,25 L70,35 L60,40 L50,35 L50,25 Z" />
+        
+        <!-- Bonds -->
+        <line x1="60" y1="15" x2="60" y2="20" />
+        <line x1="70" y1="35" x2="75" y2="38" />
+        <line x1="50" y1="35" x2="45" y2="38" />
+    </g>
+
+    <!-- Chemical Symbols -->
+    <text class="chem-text" x="55" y="33">C</text>
+    <text class="chem-text" x="45" y="75">H₂O</text>
+    <text class="chem-text" x="70" y="75">O₂</text>
+
+    <!-- Reaction Arrow -->
+    <path class="chem-element" 
+        d="M20,110 L80,110 M75,105 L80,110 L75,115" />
+
+    <!-- Energy Level -->
+    <path class="chem-element" 
+        d="M100,30 L110,30 M100,40 L110,40 M100,50 L110,50" 
+        style="stroke-width: 1;" />
+</svg>
