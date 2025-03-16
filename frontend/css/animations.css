@@ -1,3 +1,266 @@
+/* Floating Decorative Elements */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px var(--primary-light); }
+    50% { text-shadow: 0 0 20px var(--primary-light), 0 0 30px var(--accent-orange); }
+    100% { text-shadow: 0 0 5px var(--primary-light); }
+}
+
+/* Particle Animation */
+@keyframes particle {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x, 100px), var(--y, -100px)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Text Reveal Animation */
+@keyframes textReveal {
+    from {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        opacity: 0;
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+    }
+}
+
+/* Section Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 5px var(--primary-light); }
+    50% { box-shadow: 0 0 20px var(--primary-light); }
+    100% { box-shadow: 0 0 5px var(--primary-light); }
+}
+
+@keyframes borderGlow {
+    0% { border-color: var(--primary-light); }
+    50% { border-color: var(--accent-orange); }
+    100% { border-color: var(--primary-light); }
+}
+
+/* Apply animations to sections */
+.about-section,
+.eligibility-section,
+.prizes-section,
+.partners-section {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Card hover animations */
+.timeline-card,
+.eligibility-card,
+.prize-card,
+.partner-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover,
+.eligibility-card:hover,
+.prize-card:hover,
+.partner-card:hover {
+    transform: translateY(-10px);
+    animation: glowPulse 2s infinite;
+}
+
+/* Prize icon animations */
+.prize-icon {
+    transition: transform 0.3s ease;
+}
+
+.prize-icon.gold {
+    animation: glowPulse 2s infinite;
+}
+
+.prize-icon.silver {
+    animation: glowPulse 2.5s infinite;
+}
+
+.prize-icon.bronze {
+    animation: glowPulse 3s infinite;
+}
+
+/* Partner logo animations */
+.partner-logo {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.partner-card:hover .partner-logo {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--primary-light));
+}
+
+/* Eligibility list item animations */
+.eligibility-list li {
+    transition: transform 0.3s ease;
+}
+
+.eligibility-list li:hover {
+    transform: translateX(10px);
+}
+
+.eligibility-list li::before {
+    transition: background-color 0.3s ease;
+}
+
+.eligibility-list li:hover::before {
+    background-color: var(--accent-orange);
+    animation: glowPulse 1s infinite;
+}
+
+/* Timeline animations */
+.timeline::before {
+    animation: borderGlow 4s infinite;
+}
+
+.timeline-icon {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.timeline-item:hover .timeline-icon {
+    transform: scale(1.2);
+    background-color: var(--accent-orange);
+    animation: glowPulse 1s infinite;
+}
+
+/* Register button animation */
+.auth-btn.register {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Particle Effects */
+.particle {
+    position: fixed;
+    pointer-events: none;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    animation: particle 1s ease-out forwards;
+}
+
+/* Background Symbols */
+.background-symbols {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-symbol {
+    position: absolute;
+    color: var(--primary-light);
+    opacity: 0.1;
+    font-size: 2rem;
+    animation: float 10s ease-in-out infinite;
+}
+
+/* Enhanced Card Animations */
+.timeline-card,
+.prize-card,
+.partner-card {
+    transition: transform 0.3s ease-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Enhanced Text Animations */
+h1, h2, h3 {
+    position: relative;
+    animation: textReveal 1s forwards, textGlow 3s ease-in-out infinite;
+}
+
+/* Enhanced Timeline Animations */
+.timeline::before {
+    animation: borderGlow 4s infinite, float 6s ease-in-out infinite;
+}
+
+.timeline-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced Prize Icons */
+.prize-icon {
+    position: relative;
+}
+
+.prize-icon::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: inherit;
+    filter: blur(10px);
+    opacity: 0.5;
+    animation: glowPulse 2s infinite;
+}
+
+/* Enhanced Partner Logo Animations */
+.partner-logo {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Register Button Enhanced Animation */
+.auth-btn.register {
+    animation: glowPulse 2s infinite;
+}
+
+.auth-btn.register:hover {
+    animation: glowPulse 1s infinite;
+    transform: scale(1.05);
+}
+
+.auth-btn.register::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translate(-100%, -100%) rotate(45deg); }
+    100% { transform: translate(100%, 100%) rotate(45deg); }
+}
 /* Animations for EOCS Website */
 
 @keyframes pulse {
