@@ -1,5 +1,55 @@
 /* Animations for EOCS Website */
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes glow {
+    0% { filter: drop-shadow(0 0 10px var(--primary-light)); }
+    50% { filter: drop-shadow(0 0 20px var(--primary-light)); }
+    100% { filter: drop-shadow(0 0 10px var(--primary-light)); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Apply Animations */
+.hero-logo {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.time-box {
+    animation: float 4s ease-in-out infinite;
+}
+
+.time-box .number {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Stagger Animation Delays */
+.time-box:nth-child(1) { animation-delay: 0s; }
+.time-box:nth-child(2) { animation-delay: 0.5s; }
+.time-box:nth-child(3) { animation-delay: 1s; }
+.time-box:nth-child(4) { animation-delay: 1.5s; }
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
 /* Keyframes for floating elements */
 @keyframes float {
     0% {
