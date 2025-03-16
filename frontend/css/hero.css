@@ -1,0 +1,112 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    composes: card;
+    max-width: 1200px;
+    width: 100%;
+    padding: 3rem;
+    text-align: center;
+}
+
+.hero-text-container {
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-family: var(--font-orbitron);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    composes: text-gold;
+    letter-spacing: var(--letter-spacing-lg);
+}
+
+.hero-subtitle {
+    font-family: var(--font-orbitron);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    composes: text-cyan;
+    letter-spacing: var(--letter-spacing-sm);
+}
+
+.hero-credit {
+    font-family: var(--font-orbitron);
+    font-size: 1rem;
+    color: var(--primary-cyan);
+    opacity: 0.8;
+    letter-spacing: var(--letter-spacing-sm);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    composes: card;
+    padding: 1.5rem;
+    min-width: 120px;
+}
+
+.countdown-number {
+    font-family: var(--font-orbitron);
+    font-size: 2.5rem;
+    composes: text-gold;
+    margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+    font-family: var(--font-orbitron);
+    composes: text-cyan;
+    letter-spacing: var(--letter-spacing-sm);
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    composes: btn;
+}
+
+.hero-btn.primary {
+    composes: btn-primary;
+}
+
+.hero-btn.outline {
+    composes: btn-outline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-item {
+        min-width: 100px;
+        padding: 1rem;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+}

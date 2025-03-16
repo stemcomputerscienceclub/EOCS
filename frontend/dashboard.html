@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOCS Dashboard - Egyptian Olympiad in Computational Science</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+</head>
+<body class="dashboard-body">
+    <!-- Navigation -->
+    <nav class="navbar dashboard-nav">
+        <div class="nav-brand">
+            <img src="assets/logo.svg" alt="EOCS Logo" class="nav-logo">
+            <span class="nav-title">EOCS</span>
+        </div>
+        <div class="nav-links">
+            <a href="#overview" class="nav-link active"><i class="fas fa-chart-line"></i> Overview</a>
+            <a href="#team" class="nav-link"><i class="fas fa-users"></i> Team</a>
+            <a href="#submissions" class="nav-link"><i class="fas fa-file-code"></i> Submissions</a>
+            <a href="#leaderboard" class="nav-link"><i class="fas fa-trophy"></i> Leaderboard</a>
+        </div>
+        <div class="user-menu">
+            <div class="user-info">
+                <img src="assets/default-avatar.svg" alt="User Avatar" class="user-avatar">
+                <span class="user-name">Loading...</span>
+            </div>
+            <button id="logoutBtn" class="btn btn-outline">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="competition-status">
+                <h3>Competition Status</h3>
+                <div class="status-card">
+                    <div class="status-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="status-info">
+                        <span class="status-label">Current Round</span>
+                        <span class="status-value" id="currentRound">Loading...</span>
+                    </div>
+                </div>
+                <div class="countdown-container">
+                    <span class="countdown-label">Next Deadline</span>
+                    <div class="countdown-timer dashboard-countdown">
+                        <div class="countdown-item">
+                            <span id="days">00</span>
+                            <span>Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours">00</span>
+                            <span>Hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <button class="btn btn-primary" id="submitSolutionBtn">
+                    <i class="fas fa-upload"></i> Submit Solution
+                </button>
+                <button class="btn btn-outline" id="viewTeamBtn">
+                    <i class="fas fa-users"></i> View Team
+                </button>
+                <button class="btn btn-outline" id="checkLeaderboardBtn">
+                    <i class="fas fa-trophy"></i> Check Leaderboard
+                </button>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <div class="dashboard-content">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h2 class="section-title">Competition Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="totalScore">0</span>
+                            <span class="stat-label">Total Score</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="ranking">--</span>
+                            <span class="stat-label">Current Ranking</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="submissionsCount">0</span>
+                            <span class="stat-label">Submissions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <h3>Round Progress</h3>
+                    <div class="progress-timeline">
+                        <div class="timeline-point completed">
+                            <i class="fas fa-check"></i>
+                            <span>Registration</span>
+                        </div>
+                        <div class="timeline-line"></div>
+                        <div class="timeline-point active">
+                            <i class="fas fa-code"></i>
+                            <span>Qualification</span>
+                        </div>
+                        <div class="timeline-line"></div>
+                        <div class="timeline-point">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>National Round</span>
+                        </div>
+                        <div class="timeline-line"></div>
+                        <div class="timeline-point">
+                            <i class="fas fa-trophy"></i>
+                            <span>Finals</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section id="team" class="dashboard-section">
+                <h2 class="section-title">Team Management</h2>
+                <div class="team-container">
+                    <div class="team-header">
+                        <h3 id="teamName">Team Name</h3>
+                        <button class="btn btn-outline" id="editTeamBtn">
+                            <i class="fas fa-edit"></i> Edit Team
+                        </button>
+                    </div>
+                    <div class="team-members" id="teamMembers">
+                        <!-- Team members will be populated dynamically -->
+                    </div>
+                    <div class="team-actions">
+                        <button class="btn btn-primary" id="inviteMemberBtn">
+                            <i class="fas fa-user-plus"></i> Invite Member
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submissions Section -->
+            <section id="submissions" class="dashboard-section">
+                <h2 class="section-title">Your Submissions</h2>
+                <div class="submissions-container">
+                    <div class="submissions-filters">
+                        <label for="roundFilter">Filter by Round:</label>
+                        <select id="roundFilter" name="roundFilter" aria-label="Filter submissions by round">
+                            <option value="all">All Rounds</option>
+                            <option value="1">Qualification</option>
+                            <option value="2">National</option>
+                            <option value="3">Finals</option>
+                        </select>
+                        <label for="statusFilter">Filter by Status:</label>
+                        <select id="statusFilter" name="statusFilter" aria-label="Filter submissions by status">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="graded">Graded</option>
+                        </select>
+                    </div>
+                    <div class="submissions-list" id="submissionsList">
+                        <!-- Submissions will be populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leaderboard Section -->
+            <section id="leaderboard" class="dashboard-section">
+                <h2 class="section-title">Competition Leaderboard</h2>
+                <div class="leaderboard-container">
+                    <div class="leaderboard-filters">
+                        <label for="categoryFilter">Filter by Category:</label>
+                        <select id="categoryFilter" name="categoryFilter" aria-label="Filter leaderboard by category">
+                            <option value="all">All Categories</option>
+                            <option value="high_school">High School</option>
+                            <option value="university">University</option>
+                        </select>
+                        <label for="roundLeaderboardFilter">Filter by Round:</label>
+                        <select id="roundLeaderboardFilter" name="roundLeaderboardFilter" aria-label="Filter leaderboard by round">
+                            <option value="1">Qualification Round</option>
+                            <option value="2">National Round</option>
+                            <option value="3">Finals</option>
+                        </select>
+                    </div>
+                    <div class="leaderboard-list" id="leaderboardList">
+                        <!-- Leaderboard will be populated dynamically -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="submitSolutionModal" class="modal" role="dialog" aria-labelledby="submitSolutionTitle">
+        <div class="modal-content">
+            <span class="close" aria-label="Close">&times;</span>
+            <h2 id="submitSolutionTitle">Submit Solution</h2>
+            <form id="solutionForm">
+                <div class="form-group">
+                    <label for="solutionFile">Solution File</label>
+                    <input type="file" id="solutionFile" required>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <textarea id="comments" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Solution</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="inviteMemberModal" class="modal" role="dialog" aria-labelledby="inviteMemberTitle">
+        <div class="modal-content">
+            <span class="close" aria-label="Close">&times;</span>
+            <h2 id="inviteMemberTitle">Invite Team Member</h2>
+            <form id="inviteForm">
+                <div class="form-group">
+                    <label for="inviteEmail">Email Address</label>
+                    <input type="email" id="inviteEmail" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Invitation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

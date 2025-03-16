@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle -->
+    <circle cx="100" cy="100" r="90" fill="#1a237e"/>
+    
+    <!-- Egyptian Eye (Wadjet) Stylized -->
+    <path d="M50 100 Q100 50 150 100 Q100 150 50 100" 
+          fill="none" 
+          stroke="#ffd700" 
+          stroke-width="8"/>
+    
+    <!-- DNA Helix -->
+    <path d="M70 60 Q100 90 130 60 Q100 30 70 60" 
+          fill="none" 
+          stroke="#7986cb" 
+          stroke-width="4"/>
+    
+    <!-- Binary Numbers -->
+    <text x="85" y="120" 
+          font-family="Orbitron" 
+          font-size="24" 
+          fill="#ffd700">
+        EOCS
+    </text>
+    
+    <!-- Atoms/Particles -->
+    <circle cx="60" cy="140" r="4" fill="#ffd700"/>
+    <circle cx="140" cy="140" r="4" fill="#ffd700"/>
+    <circle cx="100" cy="150" r="4" fill="#ffd700"/>
+    
+    <!-- Connecting Lines -->
+    <line x1="60" y1="140" x2="100" y2="150" 
+          stroke="#ffd700" 
+          stroke-width="2"/>
+    <line x1="140" y1="140" x2="100" y2="150" 
+          stroke="#ffd700" 
+          stroke-width="2"/>
+</svg>

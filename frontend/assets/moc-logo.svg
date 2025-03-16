@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="300" height="150" fill="#1E3D59"/>
+    
+    <!-- Ministry Symbol -->
+    <g transform="translate(50, 35)">
+        <!-- Network Circle -->
+        <circle cx="40" cy="40" r="35" 
+                fill="none" 
+                stroke="#00CED1" 
+                stroke-width="2"/>
+        
+        <!-- Connection Lines -->
+        <line x1="40" y1="5" x2="40" y2="75" 
+              stroke="#00CED1" 
+              stroke-width="2"/>
+        <line x1="5" y1="40" x2="75" y2="40" 
+              stroke="#00CED1" 
+              stroke-width="2"/>
+        
+        <!-- Connection Nodes -->
+        <circle cx="40" cy="5" r="3" fill="#FFD700"/>
+        <circle cx="40" cy="75" r="3" fill="#FFD700"/>
+        <circle cx="5" cy="40" r="3" fill="#FFD700"/>
+        <circle cx="75" cy="40" r="3" fill="#FFD700"/>
+    </g>
+    
+    <!-- Text -->
+    <text x="130" y="50" 
+          font-family="Orbitron" 
+          font-size="24" 
+          fill="#FFD700"
+          style="font-weight: bold;">
+        MOC
+    </text>
+    
+    <text x="130" y="75" 
+          font-family="Roboto" 
+          font-size="14" 
+          fill="#FFFFFF">
+        Ministry of
+    </text>
+    
+    <text x="130" y="95" 
+          font-family="Roboto" 
+          font-size="14" 
+          fill="#FFFFFF">
+        Communications
+    </text>
+    
+    <!-- Digital Pattern -->
+    <g transform="translate(220, 30)">
+        <!-- Circuit Board Lines -->
+        <path d="M0 0 L50 0 L50 50 L0 50 Z" 
+              fill="none" 
+              stroke="#00CED1" 
+              stroke-width="1"/>
+        
+        <path d="M10 0 L10 50 M20 0 L20 50 M30 0 L30 50 M40 0 L40 50" 
+              stroke="#00CED1" 
+              stroke-width="1" 
+              stroke-dasharray="2,2"/>
+        
+        <path d="M0 10 L50 10 M0 20 L50 20 M0 30 L50 30 M0 40 L50 40" 
+              stroke="#00CED1" 
+              stroke-width="1" 
+              stroke-dasharray="2,2"/>
+    </g>
+    
+    <!-- Animated Pulse -->
+    <circle cx="40" cy="75" r="45" 
+            fill="none" 
+            stroke="#00CED1" 
+            stroke-width="1" 
+            opacity="0.5">
+        <animate attributeName="r"
+                 values="45;50;45"
+                 dur="2s"
+                 repeatCount="indefinite"/>
+        <animate attributeName="opacity"
+                 values="0.5;0.2;0.5"
+                 dur="2s"
+                 repeatCount="indefinite"/>
+    </circle>
+</svg>
