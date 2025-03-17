@@ -64,8 +64,8 @@ h1 {
     font-weight: 800;
     color: var(--accent-yellow);
     text-shadow: 0 0 10px var(--border-glow),
-                 0 0 20px var(--border-glow),
-                 0 0 30px var(--border-glow);
+                0 0 20px var(--border-glow),
+                0 0 30px var(--border-glow);
 }
 
 h2 {
@@ -91,6 +91,7 @@ h3 {
     font-weight: 600;
     color: var(--primary-light);
 }
+
 
 /* Navigation */
 .main-nav {
@@ -418,6 +419,9 @@ h3 {
     left: -45px;
 }
 
+.judging {
+
+}
 /* Countdown Timer */
 .countdown {
     padding: var(--spacing-lg);
@@ -552,15 +556,18 @@ h3 {
 /* Eligibility Section */
 .eligibility-section {
     padding: var(--spacing-lg);
+    padding-top: 120px;
     background: var(--primary-dark);
     position: relative;
+    text-align:center;
 }
 
 .eligibility-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    text-align:start;
 }
 
 .eligibility-card {
@@ -580,11 +587,12 @@ h3 {
     margin-top: var(--spacing-md);
 }
 
-.eligibility-list li {
+.eligibility-list li  {
     margin-bottom: var(--spacing-sm);
     color: var(--text-light);
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .eligibility-list li::before {
@@ -595,6 +603,68 @@ h3 {
     border-radius: 50%;
     margin-right: var(--spacing-sm);
 }
+
+/* Sub-list styling */
+.eligibility-list ul {
+    list-style: none;
+    padding-left: var(--spacing-lg); /* Indent sub-items */
+    margin-top: var(--spacing-xs);
+}
+
+.eligibility-list ul li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Sub-list bullet */
+.eligibility-list ul li::before {
+    content: '';
+    width: 6px; 
+    height: 6px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    margin-right: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+.steps {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+.step-card h3{
+    font-size: 20px !important;
+    padding-bottom: 8px !important  ;  
+    margin: 10px 0;
+}
+
+.step-card p{
+    font-size: 16px;
+}
+
+.step-card {
+    max-width: 270px;
+    height: 200px;
+    max-height: 250px;
+    text-align: center; 
+    font-size: 20px !important; 
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-md); 
+    padding: var(--spacing-sm);
+    border: 1px solid var(--primary-light);
+    transition: transform 0.3s ease;
+}
+
 
 /* Prizes Section */
 .prizes-section {
@@ -655,9 +725,12 @@ h3 {
 }
 
 /* Partners Section */
-.partners-section {
+/* .partners-section {
     padding: var(--spacing-lg);
+    padding-top: 120px;
+    
     background: var(--primary-dark);
+    text-align:center;
 }
 
 .partners-grid {
@@ -665,10 +738,11 @@ h3 {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     margin-top: var(--spacing-lg);
+    text-align:start;
 }
 
 .partner-card {
-    background: rgba(255, 255, 255, 0.05);
+    background-color: transparent;
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-lg);
     text-align: center;
@@ -680,17 +754,6 @@ h3 {
     transform: translateY(-5px);
 }
 
-.partner-logo {
-    width: 120px;
-    height: auto;
-    margin-bottom: var(--spacing-md);
-    filter: brightness(0) invert(1);
-    transition: filter 0.3s ease;
-}
-
-.partner-card:hover .partner-logo {
-    filter: brightness(1) invert(0);
-}
 
 .sponsor-placeholder {
     height: 100%;
@@ -704,6 +767,69 @@ h3 {
 .sponsor-placeholder .cta-secondary {
     margin-top: var(--spacing-md);
 }
+
+
+.partner-logo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.partner-logo {
+    width: 280px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Pop effect on hover */
+.partner-logo-container:hover .partner-logo {
+    transform: scale(1.1);
+} */
+
+.partner-content {
+
+}
+
+.partner-logo {
+    width: 320px;
+    height: auto;
+    margin-bottom: var(--spacing-md);
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.partner-card:hover .partner-logo {
+    filter: brightness(1) invert(0);
+}
+
+.partner-card-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 250px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show the hidden content when hovering over the text */
+.partner-card:hover + .partner-card-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(5px);
+}
+
+.partner-card-container {
+
+}
+
+
 
 /* Responsive Design Updates */
 @media (max-width: 1024px) {
@@ -1044,3 +1170,4 @@ h3 {
         min-width: 60px;
     }
 }
+
