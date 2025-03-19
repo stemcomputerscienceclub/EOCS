@@ -725,17 +725,18 @@ h3 {
 }
 
 /* Partners Section */
-/* .partners-section {
+.partners-section {
     padding: var(--spacing-lg);
     padding-top: 120px;
-    
     background: var(--primary-dark);
     text-align:center;
 }
 
 .partners-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
     gap: var(--spacing-lg);
     margin-top: var(--spacing-lg);
     text-align:start;
@@ -744,16 +745,31 @@ h3 {
 .partner-card {
     background-color: transparent;
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-lg);
     text-align: center;
-    border: 1px solid var(--primary-light);
-    transition: transform 0.3s ease;
+    padding: var(--spacing-sm); 
+    max-width: 340px;
+    height: 340px;
+    transition: 0.3s ease-in-out;
+}
+
+.partner-content {
+    opacity: 0;
+    visibiliy: hidden;
 }
 
 .partner-card:hover {
     transform: translateY(-5px);
+    height: 600px;
 }
 
+.partner-card:hover .partner-content {
+    opacity: 1;
+    visibiliy: block;
+}
+
+.partner-content h3{
+    font-size: 18px;
+}
 
 .sponsor-placeholder {
     height: 100%;
@@ -761,7 +777,6 @@ h3 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--spacing-md);
 }
 
 .sponsor-placeholder .cta-secondary {
@@ -775,58 +790,10 @@ h3 {
 }
 
 .partner-logo {
-    width: 280px;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-/* Pop effect on hover */
-.partner-logo-container:hover .partner-logo {
-    transform: scale(1.1);
-} */
-
-.partner-content {
-
-}
-
-.partner-logo {
     width: 320px;
     height: auto;
-    margin-bottom: var(--spacing-md);
     filter: brightness(0) invert(1);
-    transition: filter 0.3s ease;
-}
-
-.partner-card:hover .partner-logo {
-    filter: brightness(1) invert(0);
-}
-
-.partner-card-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-    width: 250px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Show the hidden content when hovering over the text */
-.partner-card:hover + .partner-card-content {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(5px);
-}
-
-.partner-card-container {
-
+    transition: filter 0.5s ease;.
 }
 
 
