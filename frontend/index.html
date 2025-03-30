@@ -8,307 +8,387 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/logo-animation.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-logo">
-            <img src="./assets/images/eocs-logo.svg" alt="EOCS Logo" class="logo">
+    <!-- Egyptian Theme Loader -->
+    <div class="loader-container">
+        <div class="pyramid-container">
+            <div class="pyramid">
+                <div class="pyramid-face front"></div>
+                <div class="pyramid-face back"></div>
+                <div class="pyramid-face left"></div>
+                <div class="pyramid-face right"></div>
+                <div class="pyramid-face bottom"></div>
+            </div>
+            <div class="rotating-circles">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="hieroglyphic">⚛</div>
+                <div class="hieroglyphic">π</div>
+                <div class="hieroglyphic">∑</div>
+                <div class="hieroglyphic">∞</div>
+            </div>
         </div>
-        <div class="nav-links">
-            <a href="../index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="pages/eligibility.html">Eligibility</a>
-            <a href="pages/competition.html">Competition</a>
-            <a href="pages/prizes.html">Prizes</a>
-            <a href="pages/partners.html">Partners</a>
-            <a href="pages/contact.html">Contact</a>
-            <a href="pages/auth/register.html" class="auth-btn register">Register for Competition</a>
+        <div class="loading-text">Welcome to EOCS</div>
+        <div class="progress-bar">
+            <div class="progress"></div>
         </div>
-        <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
+    </div>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content">
-            <div class="hero-box">
-                <h1 class="glowing-text" style="font-size: 2rem; margin-top: -1rem;">EGYPTIAN OLYMPIAD IN<br>COMPUTATIONAL SCIENCE</h1>
-                <p class="hero-subtitle">Where Ancient Wisdom Meets Modern Innovation</p>
-                <p class="hero-made-by">Made by: STEM High School for Boys - 6th of October</p>
-                
-                <div class="countdown-boxes">
-                    <div class="time-box">
-                        <span class="number">76</span>
-                        <span class="label">DAYS</span>
+    <!-- Three.js and required dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js"></script>
+
+    <!-- Custom loader script -->
+    <script src="js/pyramid-loader.js"></script>
+
+    <script>
+        // Function to show the loader
+        function showLoader() {
+            const loader = document.querySelector('.loader-container');
+            if (loader) {
+                loader.style.display = 'flex';
+                loader.classList.remove('fade-out');
+            }
+        }
+
+        // Function to hide the loader
+        function hideLoader() {
+            const loader = document.querySelector('.loader-container');
+            if (loader) {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 800);
+            }
+        }
+
+        // Show loader immediately
+        showLoader();
+
+        // Hide loader after a delay
+        setTimeout(() => {
+            hideLoader();
+        }, 3000);
+    </script>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <img src="assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo" class="nav-logo-img">
+            </div>
+            <div class="nav-links">
+                <a href="../index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="pages/eligibility.html">Eligibility</a>
+                <a href="pages/competition.html">Competition</a>
+                <a href="pages/prizes.html">Prizes</a>
+                <a href="pages/partners.html">Partners</a>
+                <a href="pages/contact.html">Contact</a>
+                <a href="pages/auth/register.html" class="auth-btn register">Register for Competition</a>
+            </div>
+            <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="wisdom-symbols">
+                <div class="wisdom-symbol ankh"></div>
+                <div class="wisdom-symbol eye-of-horus"></div>
+                <div class="wisdom-symbol scarab"></div>
+                <div class="wisdom-symbol feather"></div>
+                <div class="wisdom-symbol sun-disk"></div>
+                <div class="wisdom-symbol infinity"></div>
+                <div class="wisdom-symbol pi"></div>
+                <div class="wisdom-symbol sigma"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-box">
+                    <div class="hero-logo">
+                        <img src="assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo" class="hero-logo-img">
                     </div>
-                    <div class="time-box">
-                        <span class="number">05</span>
-                        <span class="label">HOURS</span>
+                    
+                    <h1 class="glowing-text">EGYPTIAN OLYMPIAD IN<br>COMPUTATIONAL SCIENCE</h1>
+                    <p class="hero-subtitle">Where Ancient Wisdom Meets Modern Innovation</p>
+                    <p class="hero-made-by">Made by: STEM High School for Boys - 6th of October</p>
+                    
+                    <div class="countdown-boxes">
+                        <div class="time-box">
+                            <span class="number">76</span>
+                            <span class="label">DAYS</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="number">05</span>
+                            <span class="label">HOURS</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="number">30</span>
+                            <span class="label">MINUTES</span>
+                        </div>
+                        <div class="time-box">
+                            <span class="number">30</span>
+                            <span class="label">SECONDS</span>
+                        </div>
                     </div>
-                    <div class="time-box">
-                        <span class="number">30</span>
-                        <span class="label">MINUTES</span>
-                    </div>
-                    <div class="time-box">
-                        <span class="number">30</span>
-                        <span class="label">SECONDS</span>
+
+                    <div class="cta-buttons">
+                        <a href="pages/auth/register.html" class="cta-primary">JOIN THE COMPETITION</a>
+                        <a href="pages/about.html" class="cta-secondary">LEARN MORE</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="cta-buttons">
-                    <a href="pages/auth/register.html" class="cta-primary">JOIN THE COMPETITION</a>
-                    <a href="pages/about.html" class="cta-secondary">LEARN MORE</a>
+        <!-- Competition Structure -->
+        <section class="competition-structure">
+            <h2>Competition Structure</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon qualification"></div>
+                    <h3>Round 1: Qualifications</h3>
+                    <ul class="eligibility-list">
+                        <li>Format: MCQs, theoretical questions, and basic coding exercises</li>
+                        <li>Focus: Foundational computational techniques and subject knowledge</li>
+                        <li>Duration: 1.5 hours</li>
+                        <li>Scoring: Automated grading</li>
+                        <li>Advancement: Top X% qualify for Round 2 & training</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon training"></div>
+                    <h3>Training Round</h3>
+                    <ul class="eligibility-list">
+                        <li>Format: Self-paced interactive challenges</li>
+                        <li>Focus: Programming, computational thinking, and scientific modeling</li>
+                        <li>Duration: Flexible (2–4 weeks)</li>
+                        <li>Purpose: Preparation for advanced rounds</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon national"></div>
+                    <h3>Round 2: National</h3>
+                    <ul class="eligibility-list">
+                        <li>Format: Written solutions, coding implementations, and simulations</li>
+                        <li>Focus: Real-world problem applications</li>
+                        <li>Duration: 2.5–3 hours</li>
+                        <li>Scoring: Automated & expert grading</li>
+                        <li>Advancement: Top teams proceed to finals</li>
+                    </ul>            
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon finals"></div>
+                    <h3>Round 3: Finals</h3>
+                    <ul class="eligibility-list">
+                        <li>Format: Open-ended computational science challenge (5–6 hours)</li>
+                        <li>Focus: Advanced problem-solving using simulations & data science</li>
+                        <li>Judging Criteria:  </li>
+                            <ul>
+                                <li>Innovation (25%)</li>
+                                <li>Scientific Accuracy (25%)</li>
+                                <li>Algorithm Efficiency (25%)</li>
+                                <li>Presentation (25%)</li>
+                            </ul>
+                    </ul>            
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <!-- Competition Structure -->
-    <section class="competition-structure">
-        <h2>Competition Structure</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-icon qualification"></div>
-                <h3>Round 1: Qualifications</h3>
-                <ul class="eligibility-list">
-                    <li>Format: MCQs, theoretical questions, and basic coding exercises</li>
-                    <li>Focus: Foundational computational techniques and subject knowledge</li>
-                    <li>Duration: 1.5 hours</li>
-                    <li>Scoring: Automated grading</li>
-                    <li>Advancement: Top X% qualify for Round 2 & training</li>
-                </ul>
+        <!-- Countdown Timer -->
+        <section class="countdown">
+            <h2>Registration Closes In:</h2>
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <span class="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-block">
+                    <span class="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-block">
+                    <span class="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="time-block">
+                    <span class="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-icon training"></div>
-                <h3>Training Round</h3>
-                <ul class="eligibility-list">
-                    <li>Format: Self-paced interactive challenges</li>
-                    <li>Focus: Programming, computational thinking, and scientific modeling</li>
-                    <li>Duration: Flexible (2–4 weeks)</li>
-                    <li>Purpose: Preparation for advanced rounds</li>
-                </ul>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="container">
+                <h2>About EOCS</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>The Egyptian Olympiad in Computational Science (EOCS) bridges Egypt's rich scientific heritage with cutting-edge computational innovation. We challenge students to solve complex scientific problems using modern computational methods.</p>
+                    </div>
+                    <div class="timeline-grid">
+                        <div class="timeline-card">
+                            <div class="timeline-icon physics"></div>
+                            <h3>Physics Computation</h3>
+                            <p>Quantum mechanics, particle physics, and astronomical simulations</p>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-icon chemistry"></div>
+                            <h3>Chemical Modeling</h3>
+                            <p>Molecular dynamics, reaction kinetics, and drug design</p>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-icon biology"></div>
+                            <h3>Biological Systems</h3>
+                            <p>DNA analysis, protein folding, and ecosystem modeling</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-icon national"></div>
-                <h3>Round 2: National</h3>
-                <ul class="eligibility-list">
-                    <li>Format: Written solutions, coding implementations, and simulations</li>
-                    <li>Focus: Real-world problem applications</li>
-                    <li>Duration: 2.5–3 hours</li>
-                    <li>Scoring: Automated & expert grading</li>
-                    <li>Advancement: Top teams proceed to finals</li>
-                </ul>            
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-icon finals"></div>
-                <h3>Round 3: Finals</h3>
-                <ul class="eligibility-list">
-                    <li>Format: Open-ended computational science challenge (5–6 hours)</li>
-                    <li>Focus: Advanced problem-solving using simulations & data science</li>
-                    <li>Judging Criteria:  </li>
-                        <ul>
-                            <li>Innovation (25%)</li>
-                            <li>Scientific Accuracy (25%)</li>
-                            <li>Algorithm Efficiency (25%)</li>
-                            <li>Presentation (25%)</li>
+        </section>
+
+        <!-- Eligibility Section -->
+        <section class="eligibility-section">
+            <div class="container">
+                <h2>Eligibility & Rules</h2>
+                <div class="eligibility-grid">
+                    <div class="eligibility-card">
+                        <h3>High School</h3>
+                        <ul class="eligibility-list">
+                            <li>Students in grades 10-12</li>
+                            <li>Age: 15-18 years</li>
+                            <li>Team size: 2-3 members</li>
+                            <li>School approval required</li>
                         </ul>
-                </ul>            
-            </div>
-        </div>
-    </section>
-
-    <!-- Countdown Timer -->
-    <section class="countdown">
-        <h2>Registration Closes In:</h2>
-        <div class="countdown-timer">
-            <div class="time-block">
-                <span class="days">00</span>
-                <span class="label">Days</span>
-            </div>
-            <div class="time-block">
-                <span class="hours">00</span>
-                <span class="label">Hours</span>
-            </div>
-            <div class="time-block">
-                <span class="minutes">00</span>
-                <span class="label">Minutes</span>
-            </div>
-            <div class="time-block">
-                <span class="seconds">00</span>
-                <span class="label">Seconds</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <h2>About EOCS</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>The Egyptian Olympiad in Computational Science (EOCS) bridges Egypt's rich scientific heritage with cutting-edge computational innovation. We challenge students to solve complex scientific problems using modern computational methods.</p>
-                </div>
-                <div class="timeline-grid">
-                    <div class="timeline-card">
-                        <div class="timeline-icon physics"></div>
-                        <h3>Physics Computation</h3>
-                        <p>Quantum mechanics, particle physics, and astronomical simulations</p>
                     </div>
-                    <div class="timeline-card">
-                        <div class="timeline-icon chemistry"></div>
-                        <h3>Chemical Modeling</h3>
-                        <p>Molecular dynamics, reaction kinetics, and drug design</p>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-icon biology"></div>
-                        <h3>Biological Systems</h3>
-                        <p>DNA analysis, protein folding, and ecosystem modeling</p>
+                    <div class="eligibility-card">
+                        <h3>University</h3>
+                        <ul class="eligibility-list">
+                            <li>Undergraduate students</li>
+                            <li>Age: 18-22 years</li>
+                            <li>Team size: 2-4 members</li>
+                            <li>Valid university ID required</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Eligibility Section -->
-    <section class="eligibility-section">
-        <div class="container">
-            <h2>Eligibility & Rules</h2>
-            <div class="eligibility-grid">
-                <div class="eligibility-card">
-                    <h3>High School</h3>
-                    <ul class="eligibility-list">
-                        <li>Students in grades 10-12</li>
-                        <li>Age: 15-18 years</li>
-                        <li>Team size: 2-3 members</li>
-                        <li>School approval required</li>
+        <!-- Prizes Section -->
+        <section class="prizes-section">
+            <div class="container">
+                <h2>Prizes & Awards</h2>
+                <div class="prizes-grid">
+                    <div class="prize-card second">
+                        <div class="prize-icon silver"></div>
+                        <h3>Second Place</h3>
+                        <ul class="prize-list">
+                            <li>30,000 EGP Cash Prize</li>
+                            <li>Tech Gadget Bundle</li>
+                            <li>Training Courses</li>
+                        </ul>
+                    </div>
+                    <div class="prize-card first">
+                        <div class="prize-icon gold"></div>
+                        <h3>First Place</h3>
+                        <ul class="prize-list">
+                            <li>50,000 EGP Cash Prize</li>
+                            <li>High-End Laptops</li>
+                            <li>Internship Opportunities</li>
+                        </ul>
+                    </div>
+                    <div class="prize-card third">
+                        <div class="prize-icon bronze"></div>
+                        <h3>Third Place</h3>
+                        <ul class="prize-list">
+                            <li>15,000 EGP Cash Prize</li>
+                            <li>Tech Accessories</li>
+                            <li>Online Courses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners-section">
+            <div class="container">
+                <h2>Partners & Sponsors</h2>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <img src="assets/images/ministry-of-communications-and-information-technology-egypt-squarelogo-1663323154744.png" alt="MCIT Logo" class="partner-logo">
+                        <div class="partner-content">
+                            <h3>Ministry of Communications and Information Technology Egypt</h3>
+                            <p>Government Support Partner</p>
+                        </div>
+                    </div>
+                    <div class="partner-card">
+                        <img src="assets/images/eui-logo.png" alt="EUI Logo" class="partner-logo">
+                        <div class="partner-content">
+                            <h3>Egypt University of Informatics</h3>
+                            <p>Strategic Educational Partner</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card sponsor">
+                        <div class="sponsor-placeholder">
+                            <h3>Become a Sponsor</h3>
+                            <p>Join us in fostering innovation</p>
+                            <a href="pages/contact.html" class="cta-secondary">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="pages/about.html">About EOCS</a></li>
+                        <li><a href="pages/eligibility.html">Eligibility</a></li>
+                        <li><a href="pages/competition.html">Competition</a></li>
+                        <li><a href="pages/contact.html">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="eligibility-card">
-                    <h3>University</h3>
-                    <ul class="eligibility-list">
-                        <li>Undergraduate students</li>
-                        <li>Age: 18-22 years</li>
-                        <li>Team size: 2-4 members</li>
-                        <li>Valid university ID required</li>
+                <div class="footer-section">
+                    <h3>Partners</h3>
+                    <ul>
+                        <li><a href="#">EUI</a></li>
+                        <li><a href="#">Ministry of Communications</a></li>
+                        <li><a href="pages/partners.html">All Partners</a></li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Prizes Section -->
-    <section class="prizes-section">
-        <div class="container">
-            <h2>Prizes & Awards</h2>
-            <div class="prizes-grid">
-                <div class="prize-card second">
-                    <div class="prize-icon silver"></div>
-                    <h3>Second Place</h3>
-                    <ul class="prize-list">
-                        <li>30,000 EGP Cash Prize</li>
-                        <li>Tech Gadget Bundle</li>
-                        <li>Training Courses</li>
-                    </ul>
-                </div>
-                <div class="prize-card first">
-                    <div class="prize-icon gold"></div>
-                    <h3>First Place</h3>
-                    <ul class="prize-list">
-                        <li>50,000 EGP Cash Prize</li>
-                        <li>High-End Laptops</li>
-                        <li>Internship Opportunities</li>
-                    </ul>
-                </div>
-                <div class="prize-card third">
-                    <div class="prize-icon bronze"></div>
-                    <h3>Third Place</h3>
-                    <ul class="prize-list">
-                        <li>15,000 EGP Cash Prize</li>
-                        <li>Tech Accessories</li>
-                        <li>Online Courses</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="partners-section">
-        <div class="container">
-            <h2>Partners & Sponsors</h2>
-            <div class="partners-grid">
-                <div class="partner-card">
-                    <img src="assets/images/ministry-of-communications-and-information-technology-egypt-squarelogo-1663323154744.png" alt="MCIT Logo" class="partner-logo">
-                    <div class="partner-content">
-                        <h3>Ministry of Communications and Information Technology Egypt</h3>
-                        <p>Government Support Partner</p>
-                    </div>
-                </div>
-                <div class="partner-card">
-                    <img src="assets/images/eui-logo.png" alt="EUI Logo" class="partner-logo">
-                    <div class="partner-content">
-                        <h3>Egypt University of Informatics</h3>
-                        <p>Strategic Educational Partner</p>
-                    </div>
-                </div>
-
-                <div class="partner-card sponsor">
-                    <div class="sponsor-placeholder">
-                        <h3>Become a Sponsor</h3>
-                        <p>Join us in fostering innovation</p>
-                        <a href="pages/contact.html" class="cta-secondary">Contact Us</a>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon facebook"></a>
+                        <a href="#" class="social-icon twitter"></a>
+                        <a href="#" class="social-icon linkedin"></a>
+                        <a href="#" class="social-icon instagram"></a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
+            <div class="footer-bottom">
+                <p>&copy; 2025 Egyptian Olympiad in Computational Science. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="pages/about.html">About EOCS</a></li>
-                    <li><a href="pages/eligibility.html">Eligibility</a></li>
-                    <li><a href="pages/competition.html">Competition</a></li>
-                    <li><a href="pages/contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Partners</h3>
-                <ul>
-                    <li><a href="#">EUI</a></li>
-                    <li><a href="#">Ministry of Communications</a></li>
-                    <li><a href="pages/partners.html">All Partners</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="#" class="social-icon facebook"></a>
-                    <a href="#" class="social-icon twitter"></a>
-                    <a href="#" class="social-icon linkedin"></a>
-                    <a href="#" class="social-icon instagram"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Egyptian Olympiad in Computational Science. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="js/animations.js"></script>
-    <script src="js/countdown.js"></script>
+    <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script src="js/advanced-animations.js"></script>
-
-    <!-- Background Symbols Container (will be populated by JS) -->
-    <div class="background-symbols"></div>
 </body>
 </html>

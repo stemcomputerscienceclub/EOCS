@@ -27,9 +27,9 @@ class EmailService {
                     <p>Thank you for registering for the Egyptian Olympiad in Computational Science.</p>
                     <p>Please verify your email address by clicking the button below:</p>
                     <a href="${verificationUrl}" 
-                       style="display: inline-block; padding: 12px 24px; background: #3949ab; 
-                              color: white; text-decoration: none; border-radius: 4px; 
-                              margin: 20px 0;">
+                    style="display: inline-block; padding: 12px 24px; background: #3949ab; 
+                            color: white; text-decoration: none; border-radius: 4px; 
+                            margin: 20px 0;">
                         Verify Email
                     </a>
                     <p style="color: #666; font-size: 14px;">

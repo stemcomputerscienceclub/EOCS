@@ -58,39 +58,91 @@ document.querySelectorAll('.element').forEach(element => {
     new FloatingElement(element);
 });
 
-// Countdown Timer
+// Create floating wisdom symbols
+function createWisdomSymbols() {
+    const symbols = [
+        { class: 'ankh', probability: 0.2 },
+        { class: 'eye-of-horus', probability: 0.15 },
+        { class: 'scarab', probability: 0.15 },
+        { class: 'feather', probability: 0.1 },
+        { class: 'sun-disk', probability: 0.1 },
+        { class: 'infinity', probability: 0.1 },
+        { class: 'pi', probability: 0.1 },
+        { class: 'sigma', probability: 0.1 }
+    ];
+
+    const container = document.createElement('div');
+    container.className = 'wisdom-symbols';
+    document.body.appendChild(container);
+
+    // Create initial symbols
+    for (let i = 0; i < 20; i++) {
+        createSymbol(container, symbols);
+    }
+
+    // Continuously create new symbols
+    setInterval(() => {
+        if (Math.random() < 0.3) { // 30% chance to create a new symbol
+            createSymbol(container, symbols);
+        }
+    }, 2000);
+}
+
+function createSymbol(container, symbols) {
+    const symbol = document.createElement('div');
+    symbol.className = 'wisdom-symbol';
+    
+    // Randomly select a symbol based on probability
+    const random = Math.random();
+    let cumulative = 0;
+    const selectedSymbol = symbols.find(s => {
+        cumulative += s.probability;
+        return random < cumulative;
+    }) || symbols[0];
+    
+    symbol.classList.add(selectedSymbol.class);
+    
+    // Random position and animation duration
+    symbol.style.left = Math.random() * 100 + 'vw';
+    symbol.style.animationDuration = (10 + Math.random() * 10) + 's';
+    
+    container.appendChild(symbol);
+    
+    // Remove symbol after animation
+    symbol.addEventListener('animationend', () => {
+        container.removeChild(symbol);
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    createWisdomSymbols();
+    
+    // Add other initialization code here
+});
+
+// Update countdown timer
 function updateCountdown() {
-    // Set the date we're counting down to (3 months from now)
-    const countDownDate = new Date();
-    countDownDate.setMonth(countDownDate.getMonth() + 3);
+    const now = new Date();
+    const target = new Date('2025-01-01T00:00:00'); // Set your target date here
+    const diff = target - now;
 
-    // Update the countdown every 1 second
-    const timer = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = countDownDate - now;
+    if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        // Calculate days, hours, minutes and seconds
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Update the HTML
         document.querySelector('.days').textContent = String(days).padStart(2, '0');
         document.querySelector('.hours').textContent = String(hours).padStart(2, '0');
         document.querySelector('.minutes').textContent = String(minutes).padStart(2, '0');
         document.querySelector('.seconds').textContent = String(seconds).padStart(2, '0');
-
-        // If the countdown is finished, clear the interval
-        if (distance < 0) {
-            clearInterval(timer);
-            document.querySelector('.countdown').innerHTML = "Registration Closed";
-        }
-    }, 1000);
+    }
 }
 
-// Start the countdown
-updateCountdown();
+// Update countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial update
 
 // Smooth Scroll for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
