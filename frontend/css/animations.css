@@ -1,0 +1,672 @@
+/* Floating Decorative Elements */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px var(--primary-light); }
+    50% { text-shadow: 0 0 20px var(--primary-light), 0 0 30px var(--accent-orange); }
+    100% { text-shadow: 0 0 5px var(--primary-light); }
+}
+
+/* Particle Animation */
+@keyframes particle {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x, 100px), var(--y, -100px)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Text Reveal Animation */
+@keyframes textReveal {
+    from {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        opacity: 0;
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+    }
+}
+
+/* Section Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 5px var(--primary-light); }
+    50% { box-shadow: 0 0 20px var(--primary-light); }
+    100% { box-shadow: 0 0 5px var(--primary-light); }
+}
+
+@keyframes borderGlow {
+    0% { border-color: var(--primary-light); }
+    50% { border-color: var(--accent-orange); }
+    100% { border-color: var(--primary-light); }
+}
+
+/* Apply animations to sections */
+.about-section,
+.eligibility-section,
+.prizes-section,
+.partners-section {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Card hover animations */
+.timeline-card,
+.eligibility-card,
+.prize-card,
+.partner-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover,
+.eligibility-card:hover,
+.prize-card:hover,
+.partner-card:hover {
+    transform: translateY(-10px);
+    animation: glowPulse 2s infinite;
+}
+
+/* Prize icon animations */
+.prize-icon {
+    transition: transform 0.3s ease;
+}
+
+.prize-icon.gold {
+    animation: glowPulse 2s infinite;
+}
+
+.prize-icon.silver {
+    animation: glowPulse 2.5s infinite;
+}
+
+.prize-icon.bronze {
+    animation: glowPulse 3s infinite;
+}
+
+/* Partner logo animations */
+.partner-logo {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.partner-card:hover .partner-logo {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--primary-light));
+}
+
+/* Eligibility list item animations */
+.eligibility-list li {
+    transition: transform 0.3s ease;
+}
+
+.eligibility-list li:hover {
+    transform: translateX(10px);
+}
+
+.eligibility-list li::before {
+    transition: background-color 0.3s ease;
+}
+
+.eligibility-list li:hover::before {
+    background-color: var(--accent-orange);
+    animation: glowPulse 1s infinite;
+}
+
+/* Timeline animations */
+.timeline::before {
+    animation: borderGlow 4s infinite;
+}
+
+.timeline-icon {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.timeline-item:hover .timeline-icon {
+    transform: scale(1.2);
+    background-color: var(--accent-orange);
+    animation: glowPulse 1s infinite;
+}
+
+/* Register button animation */
+.auth-btn.register {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Particle Effects */
+.particle {
+    position: fixed;
+    pointer-events: none;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    animation: particle 1s ease-out forwards;
+}
+
+/* Background Symbols */
+.background-symbols {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-symbol {
+    position: absolute;
+    color: var(--primary-light);
+    opacity: 0.1;
+    font-size: 2rem;
+    animation: float 10s ease-in-out infinite;
+}
+
+/* Enhanced Card Animations */
+.timeline-card,
+.prize-card,
+.partner-card {
+    transition: transform 0.3s ease-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Enhanced Text Animations */
+h1, h2, h3 {
+    position: relative;
+    animation: textReveal 1s forwards, textGlow 3s ease-in-out infinite;
+}
+
+/* Enhanced Timeline Animations */
+.timeline::before {
+    animation: borderGlow 4s infinite, float 6s ease-in-out infinite;
+}
+
+.timeline-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced Prize Icons */
+.prize-icon {
+    position: relative;
+}
+
+.prize-icon::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: inherit;
+    filter: blur(10px);
+    opacity: 0.5;
+    animation: glowPulse 2s infinite;
+}
+
+/* Enhanced Partner Logo Animations */
+.partner-logo {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Register Button Enhanced Animation */
+.auth-btn.register {
+    animation: glowPulse 2s infinite;
+}
+
+.auth-btn.register:hover {
+    animation: glowPulse 1s infinite;
+    transform: scale(1.05);
+}
+
+.auth-btn.register::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translate(-100%, -100%) rotate(45deg); }
+    100% { transform: translate(100%, 100%) rotate(45deg); }
+}
+/* Animations for EOCS Website */
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes glow {
+    0% { filter: drop-shadow(0 0 10px var(--primary-light)); }
+    50% { filter: drop-shadow(0 0 20px var(--primary-light)); }
+    100% { filter: drop-shadow(0 0 10px var(--primary-light)); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Apply Animations */
+.hero-logo {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.time-box {
+    animation: float 4s ease-in-out infinite;
+}
+
+.time-box .number {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Stagger Animation Delays */
+.time-box:nth-child(1) { animation-delay: 0s; }
+.time-box:nth-child(2) { animation-delay: 0.5s; }
+.time-box:nth-child(3) { animation-delay: 1s; }
+.time-box:nth-child(4) { animation-delay: 1.5s; }
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Keyframes for floating elements */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 5px var(--primary-light));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px var(--primary-light));
+    }
+    100% {
+        filter: drop-shadow(0 0 5px var(--primary-light));
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hieroglyphScroll {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -100% 0;
+    }
+}
+
+/* Floating Elements Animation */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.element {
+    position: absolute;
+    opacity: 0.6;
+    animation: float 6s ease-in-out infinite;
+}
+
+.element.dna {
+    top: 20%;
+    left: 10%;
+    width: 100px;
+    height: 200px;
+    background: url('../assets/images/dna.svg') no-repeat center/contain;
+    animation-delay: -1s;
+}
+
+.element.math {
+    top: 40%;
+    right: 15%;
+    width: 150px;
+    height: 150px;
+    background: url('../assets/images/math.svg') no-repeat center/contain;
+    animation-delay: -2s;
+}
+
+.element.chemistry {
+    bottom: 30%;
+    left: 20%;
+    width: 120px;
+    height: 120px;
+    background: url('../assets/images/chemistry.svg') no-repeat center/contain;
+    animation-delay: -3s;
+}
+
+.element.hieroglyph {
+    bottom: 20%;
+    right: 10%;
+    width: 180px;
+    height: 180px;
+    background: url('../assets/images/hieroglyph.svg') no-repeat center/contain;
+    animation-delay: -4s;
+}
+
+/* Hero Background Animation */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/images/hieroglyphs-pattern.svg') repeat;
+    opacity: 0.1;
+    animation: hieroglyphScroll 60s linear infinite;
+}
+
+/* Page Transition Animations */
+.page-transition {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Timeline Animations */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.timeline-item.visible {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Glowing Effects */
+.glowing-text {
+    animation: glow 3s ease-in-out infinite;
+}
+
+/* Hover Animations */
+.nav-links a:hover {
+    color: var(--primary-light);
+    transition: color 0.3s ease;
+}
+
+.cta-primary:hover,
+.cta-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Responsive Animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .hero-background {
+        animation: none;
+    }
+    
+    .element {
+        animation: none;
+        opacity: 0.3;
+    }
+}
+
+/* Egyptian Wisdom Animations */
+.wisdom-symbols {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.15;
+}
+
+.wisdom-symbol {
+    position: absolute;
+    font-size: 3rem;
+    color: var(--egyptian-gold);
+    text-shadow: 0 0 10px rgba(173, 130, 49, 0.5);
+    animation: floatSymbol 20s infinite linear;
+}
+
+/* Position symbols around the hero section */
+.wisdom-symbol:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+.wisdom-symbol:nth-child(2) { left: 80%; top: 30%; animation-delay: -2s; }
+.wisdom-symbol:nth-child(3) { left: 20%; top: 60%; animation-delay: -4s; }
+.wisdom-symbol:nth-child(4) { left: 70%; top: 70%; animation-delay: -6s; }
+.wisdom-symbol:nth-child(5) { left: 40%; top: 40%; animation-delay: -8s; }
+.wisdom-symbol:nth-child(6) { left: 90%; top: 50%; animation-delay: -10s; }
+.wisdom-symbol:nth-child(7) { left: 30%; top: 80%; animation-delay: -12s; }
+.wisdom-symbol:nth-child(8) { left: 60%; top: 20%; animation-delay: -14s; }
+
+@keyframes floatSymbol {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(20px, -20px) rotate(90deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(0, -40px) rotate(180deg);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translate(-20px, -20px) rotate(270deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+/* Ancient Symbols with enhanced visibility */
+.ankh::before { content: '☥'; font-size: 3.5rem; }
+.eye-of-horus::before { content: '𓂀'; font-size: 3.5rem; }
+.scarab::before { content: '𓆣'; font-size: 3.5rem; }
+.feather::before { content: '𓃛'; font-size: 3.5rem; }
+.sun-disk::before { content: '☀'; font-size: 3.5rem; }
+.infinity::before { content: '∞'; font-size: 3.5rem; }
+.pi::before { content: 'π'; font-size: 3.5rem; }
+.sigma::before { content: '∑'; font-size: 3.5rem; }
+
+/* Add hover effect to symbols */
+.wisdom-symbol:hover {
+    animation-play-state: paused;
+    opacity: 1;
+    text-shadow: 0 0 20px var(--egyptian-gold);
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+}
+
+/* Hero Section Enhancement */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(173, 130, 49, 0.1) 0%, rgba(27, 75, 130, 0.1) 100%);
+    z-index: -1;
+}
+
+.hero-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-box::before,
+.hero-box::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    animation: rotateWisdom 10s infinite linear;
+}
+
+.hero-box::before {
+    top: -20px;
+    left: -20px;
+    background-image: url('../assets/egyptian-corner-left.svg');
+}
+
+.hero-box::after {
+    bottom: -20px;
+    right: -20px;
+    background-image: url('../assets/egyptian-corner-right.svg');
+    transform: rotate(180deg);
+}
+
+@keyframes rotateWisdom {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Section Headers Enhancement */
+section h2 {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+section h2::before,
+section h2::after {
+    content: '☥';
+    position: absolute;
+    font-size: 1.5em;
+    color: var(--egyptian-gold);
+    opacity: 0.5;
+    animation: pulseAnkh 2s infinite ease-in-out;
+}
+
+section h2::before {
+    left: -40px;
+}
+
+section h2::after {
+    right: -40px;
+}
+
+@keyframes pulseAnkh {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Timeline Enhancement */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        var(--egyptian-gold) 0%,
+        var(--egyptian-bright-gold) 50%,
+        var(--egyptian-gold) 100%
+    );
+    animation: timelinePulse 3s infinite linear;
+}
+
+@keyframes timelinePulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}

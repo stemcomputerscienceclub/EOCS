@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .hieroglyph {
+            fill: none;
+            stroke: #00E5FF;
+            stroke-width: 2;
+        }
+        .circuit {
+            fill: none;
+            stroke: #00E5FF;
+            stroke-width: 1;
+            opacity: 0.7;
+        }
+        .dot {
+            fill: #00E5FF;
+        }
+    </style>
+
+    <!-- Ankh Symbol with Circuit Integration -->
+    <g class="hieroglyph">
+        <!-- Ankh Loop -->
+        <path d="M90,30 
+                 Q105,30 105,45 
+                 Q105,60 90,60 
+                 Q75,60 75,45 
+                 Q75,30 90,30" />
+        
+        <!-- Ankh Stem -->
+        <path d="M90,60 L90,120" />
+        
+        <!-- Ankh Base -->
+        <path d="M70,100 L110,100" />
+    </g>
+
+    <!-- Eye of Horus with Binary -->
+    <g class="hieroglyph">
+        <!-- Eye Outline -->
+        <path d="M50,70 
+                 Q65,60 80,70 
+                 Q95,80 110,70" />
+        
+        <!-- Eye Detail -->
+        <path d="M65,70 
+                 Q80,75 95,70" />
+        
+        <!-- Binary Tears -->
+        <text x="75" y="85" 
+              style="fill: #00E5FF; font-size: 8px; font-family: monospace;">
+            1010
+        </text>
+    </g>
+
+    <!-- Pyramid with Circuit Board Pattern -->
+    <g class="hieroglyph">
+        <!-- Pyramid Outline -->
+        <path d="M60,140 L90,100 L120,140 Z" />
+        
+        <!-- Circuit Lines -->
+        <g class="circuit">
+            <path d="M70,130 L110,130" />
+            <path d="M75,120 L105,120" />
+            <path d="M80,110 L100,110" />
+        </g>
+    </g>
+
+    <!-- Circuit Board Elements -->
+    <g class="circuit">
+        <!-- Vertical Lines -->
+        <path d="M30,30 L30,150" />
+        <path d="M150,30 L150,150" />
+        
+        <!-- Horizontal Lines -->
+        <path d="M30,30 L150,30" />
+        <path d="M30,150 L150,150" />
+        
+        <!-- Connection Points -->
+        <circle class="dot" cx="30" cy="30" r="2" />
+        <circle class="dot" cx="30" cy="150" r="2" />
+        <circle class="dot" cx="150" cy="30" r="2" />
+        <circle class="dot" cx="150" cy="150" r="2" />
+    </g>
+
+    <!-- Scarab with Binary Wings -->
+    <g class="hieroglyph">
+        <!-- Scarab Body -->
+        <path d="M80,160 
+                 Q90,150 100,160 
+                 Q90,170 80,160" />
+        
+        <!-- Binary Pattern Wings -->
+        <text x="70" y="155" 
+              style="fill: #00E5FF; font-size: 6px; font-family: monospace;">
+            101
+        </text>
+        <text x="95" y="155" 
+              style="fill: #00E5FF; font-size: 6px; font-family: monospace;">
+            010
+        </text>
+    </g>
+
+    <!-- Decorative Circuit Paths -->
+    <g class="circuit">
+        <path d="M40,40 Q90,45 140,40" />
+        <path d="M40,140 Q90,135 140,140" />
+        <circle class="dot" cx="90" cy="42.5" r="1.5" />
+        <circle class="dot" cx="90" cy="137.5" r="1.5" />
+    </g>
+</svg>
