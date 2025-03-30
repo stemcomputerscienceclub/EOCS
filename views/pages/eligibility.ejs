@@ -1,0 +1,109 @@
+<!-- Eligibility Hero Section -->
+<section class="eligibility-hero">
+    <div class="container">
+        <h1>Eligibility Requirements</h1>
+        <p class="hero-subtitle">Find out if you qualify to participate in EOCS</p>
+    </div>
+</section>
+
+<!-- Main Eligibility Section -->
+<%- include('../components/eligibility-section', { showSteps: true }) %>
+
+<!-- Requirements Section -->
+<section class="requirements-section">
+    <div class="container">
+        <h2>Technical Requirements</h2>
+        <div class="requirements-grid">
+            <div class="requirement-card">
+                <div class="requirement-icon programming"></div>
+                <h3>Programming Skills</h3>
+                <ul>
+                    <li>Basic programming knowledge</li>
+                    <li>Understanding of algorithms</li>
+                    <li>Problem-solving abilities</li>
+                </ul>
+            </div>
+            <div class="requirement-card">
+                <div class="requirement-icon math"></div>
+                <h3>Mathematical Background</h3>
+                <ul>
+                    <li>Calculus fundamentals</li>
+                    <li>Linear algebra basics</li>
+                    <li>Statistical concepts</li>
+                </ul>
+            </div>
+            <div class="requirement-card">
+                <div class="requirement-icon science"></div>
+                <h3>Scientific Knowledge</h3>
+                <ul>
+                    <li>Basic physics concepts</li>
+                    <li>Chemistry fundamentals</li>
+                    <li>Biological systems understanding</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Documentation Section -->
+<section class="documentation-section">
+    <div class="container">
+        <h2>Required Documentation</h2>
+        <div class="documentation-grid">
+            <div class="doc-card">
+                <h3>High School Students</h3>
+                <ul>
+                    <li>Valid school ID</li>
+                    <li>Parent/Guardian consent form</li>
+                    <li>School approval letter</li>
+                    <li>Academic transcript</li>
+                </ul>
+            </div>
+            <div class="doc-card">
+                <h3>University Students</h3>
+                <ul>
+                    <li>Valid university ID</li>
+                    <li>Current enrollment proof</li>
+                    <li>Academic transcript</li>
+                    <li>Department approval letter</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>Can international students participate?</h3>
+                <p>Currently, the competition is open only to students residing in Egypt.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is prior competition experience required?</h3>
+                <p>No, we welcome students of all experience levels who meet the basic requirements.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I participate in multiple categories?</h3>
+                <p>No, participants must choose one category based on their current educational level.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Join?</h2>
+        <p>If you meet the eligibility requirements, take the first step towards your computational science journey.</p>
+        <div class="cta-buttons">
+            <a href="/auth/register" class="cta-primary">Register Now</a>
+            <a href="/contact" class="cta-secondary">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<% /* Add additional scripts */ %>
+<% additionalScripts = ['/js/animations.js'] %>

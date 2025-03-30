@@ -1,0 +1,77 @@
+<div class="auth-box register-box">
+    <img src="/assets/images/eocs-logo.svg" alt="EOCS Logo" class="auth-logo">
+    <h2>Join EOCS</h2>
+    <p class="auth-subtitle">Begin your journey in computational science</p>
+
+    <form class="auth-form" id="registerForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+                <option value="">Select Category</option>
+                <option value="high-school">Category A: High School (Grades 9-12)</option>
+                <option value="university">Category B: University (Undergraduate)</option>
+            </select>
+        </div>
+
+        <div class="form-group grade-year" style="display: none;">
+            <label for="gradeYear">Grade/Year</label>
+            <select id="gradeYear" name="gradeYear">
+                <option value="">Select Grade/Year</option>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="institution">School/University Name</label>
+            <input type="text" id="institution" name="institution" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="01xxxxxxxxx" pattern="01[0-9]{9}" required>
+        </div>
+
+        <div class="form-group form-checkbox">
+            <label>
+                <input type="checkbox" name="terms" required>
+                <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
+            </label>
+        </div>
+
+        <button type="submit" class="cta-primary auth-submit">Create Account</button>
+    </form>
+
+    <div class="auth-footer">
+        <p>Already have an account? <a href="/auth/login">Login</a></p>
+    </div>
+</div>
+
+<% /* Add form validation and dynamic select options scripts */ %>
+<% additionalScripts = ['/js/auth/register.js'] %>

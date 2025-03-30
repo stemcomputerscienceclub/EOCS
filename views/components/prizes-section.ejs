@@ -1,0 +1,45 @@
+<section class="prizes-section">
+    <div class="container">
+        <h2>Prizes & Awards</h2>
+        <div class="prizes-grid">
+            <div class="prize-card second">
+                <div class="prize-icon silver"></div>
+                <h3>Second Place</h3>
+                <ul class="prize-list">
+                    <li>30,000 EGP Cash Prize</li>
+                    <li>Tech Gadget Bundle</li>
+                    <li>Training Courses</li>
+                </ul>
+            </div>
+            <div class="prize-card first">
+                <div class="prize-icon gold"></div>
+                <h3>First Place</h3>
+                <ul class="prize-list">
+                    <li>50,000 EGP Cash Prize</li>
+                    <li>High-End Laptops</li>
+                    <li>Internship Opportunities</li>
+                </ul>
+            </div>
+            <div class="prize-card third">
+                <div class="prize-icon bronze"></div>
+                <h3>Third Place</h3>
+                <ul class="prize-list">
+                    <li>15,000 EGP Cash Prize</li>
+                    <li>Tech Accessories</li>
+                    <li>Online Courses</li>
+                </ul>
+            </div>
+        </div>
+        <% if (locals.showAdditionalInfo) { %>
+        <div class="additional-prizes">
+            <h3>Special Recognition Awards</h3>
+            <ul>
+                <li>Best Innovation Award</li>
+                <li>Best Technical Implementation</li>
+                <li>Best Scientific Impact</li>
+                <li>Best Presentation</li>
+            </ul>
+        </div>
+        <% } %>
+    </div>
+</section>

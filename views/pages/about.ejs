@@ -1,0 +1,85 @@
+<!-- About Hero Section -->
+<section class="about-hero">
+    <div class="container">
+        <h1>About EOCS</h1>
+        <p class="hero-subtitle">Bridging Ancient Wisdom with Modern Innovation</p>
+    </div>
+</section>
+
+<!-- Main About Section -->
+<%- include('../components/about-section') %>
+
+<!-- Mission Section -->
+<section class="mission-section">
+    <div class="container">
+        <h2>Our Mission</h2>
+        <div class="mission-content">
+            <div class="mission-text">
+                <p>The Egyptian Olympiad in Computational Science aims to inspire and nurture the next generation of computational scientists, fostering innovation and excellence in scientific problem-solving through modern computational methods.</p>
+            </div>
+            <div class="mission-points">
+                <div class="point">
+                    <h3>Innovation</h3>
+                    <p>Encouraging creative solutions to complex scientific challenges</p>
+                </div>
+                <div class="point">
+                    <h3>Education</h3>
+                    <p>Providing hands-on experience with cutting-edge computational tools</p>
+                </div>
+                <div class="point">
+                    <h3>Collaboration</h3>
+                    <p>Building a community of young computational scientists</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision Section -->
+<section class="vision-section">
+    <div class="container">
+        <h2>Our Vision</h2>
+        <div class="vision-content">
+            <p>To establish Egypt as a leading hub for computational science education and innovation in the Middle East and Africa, creating opportunities for young talents to excel in the field of scientific computing.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="container">
+        <h2>Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">
+                    <!-- Photo placeholder -->
+                </div>
+                <h3>Dr. Ahmed Hassan</h3>
+                <p class="member-role">Scientific Director</p>
+                <p class="member-desc">Leading computational physicist with 15 years of experience</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <!-- Photo placeholder -->
+                </div>
+                <h3>Dr. Sarah Mohamed</h3>
+                <p class="member-role">Educational Director</p>
+                <p class="member-desc">Expert in computational science education</p>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <!-- Photo placeholder -->
+                </div>
+                <h3>Eng. Omar Ali</h3>
+                <p class="member-role">Technical Director</p>
+                <p class="member-desc">Specialist in scientific computing and simulation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partners Section -->
+<%- include('../components/partners-section', { showAllPartners: true }) %>
+
+<% /* Add additional scripts */ %>
+<% additionalScripts = ['/js/animations.js'] %>

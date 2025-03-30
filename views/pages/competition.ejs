@@ -1,0 +1,171 @@
+<!-- Competition Hero Section -->
+<section class="competition-hero">
+    <div class="container">
+        <h1>Competition Structure</h1>
+        <p class="hero-subtitle">A comprehensive journey through computational science</p>
+    </div>
+</section>
+
+<!-- Competition Structure Section -->
+<section class="competition-structure">
+    <div class="container">
+        <h2>Competition Phases</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>Registration Phase</h3>
+                    <p>Teams register and submit their initial proposals. Each team must consist of 2-4 members.</p>
+                    <ul>
+                        <li>Team formation</li>
+                        <li>Project proposal submission</li>
+                        <li>Initial screening</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>Development Phase</h3>
+                    <p>Selected teams work on their projects with mentorship and guidance from industry experts.</p>
+                    <ul>
+                        <li>Project development</li>
+                        <li>Mentorship sessions</li>
+                        <li>Progress tracking</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>Submission Phase</h3>
+                    <p>Teams submit their final projects, including documentation and presentation materials.</p>
+                    <ul>
+                        <li>Final submission</li>
+                        <li>Documentation review</li>
+                        <li>Technical assessment</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <h3>Judging Phase</h3>
+                    <p>Projects are evaluated by a panel of experts based on innovation, technical merit, and impact.</p>
+                    <ul>
+                        <li>Project presentation</li>
+                        <li>Technical evaluation</li>
+                        <li>Winner selection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="competition-categories">
+    <div class="container">
+        <h2>Competition Categories</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">🤖</div>
+                <h3>Artificial Intelligence</h3>
+                <p>Develop innovative AI solutions for real-world problems</p>
+                <ul>
+                    <li>Machine Learning Applications</li>
+                    <li>Natural Language Processing</li>
+                    <li>Computer Vision</li>
+                    <li>Robotics</li>
+                </ul>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🌐</div>
+                <h3>Web Development</h3>
+                <p>Create cutting-edge web applications and platforms</p>
+                <ul>
+                    <li>Full-stack Applications</li>
+                    <li>Progressive Web Apps</li>
+                    <li>E-commerce Solutions</li>
+                    <li>Social Platforms</li>
+                </ul>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📱</div>
+                <h3>Mobile Development</h3>
+                <p>Build innovative mobile applications</p>
+                <ul>
+                    <li>iOS Applications</li>
+                    <li>Android Applications</li>
+                    <li>Cross-platform Solutions</li>
+                    <li>Mobile Games</li>
+                </ul>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🔒</div>
+                <h3>Cybersecurity</h3>
+                <p>Develop security solutions and tools</p>
+                <ul>
+                    <li>Security Tools</li>
+                    <li>Encryption Systems</li>
+                    <li>Network Security</li>
+                    <li>Privacy Solutions</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline-section">
+    <div class="container">
+        <h2>Important Dates</h2>
+        <div class="section-intro">
+            <p>Mark your calendar with these important dates. Late submissions will not be accepted, so please plan accordingly.</p>
+        </div>
+        <div class="timeline-grid">
+            <%- include('../components/timeline-dates') %>
+        </div>
+    </div>
+</section>
+
+<!-- Resources Section -->
+<section class="resources-section">
+    <div class="container">
+        <h2>Competition Resources</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <h3>Development Tools</h3>
+                <ul>
+                    <li>GitHub Student Developer Pack</li>
+                    <li>Cloud Computing Credits</li>
+                    <li>Development Software Licenses</li>
+                    <li>API Access</li>
+                </ul>
+            </div>
+            <div class="resource-card">
+                <h3>Learning Materials</h3>
+                <ul>
+                    <li>Technical Documentation</li>
+                    <li>Video Tutorials</li>
+                    <li>Code Samples</li>
+                    <li>Best Practices Guide</li>
+                </ul>
+            </div>
+            <div class="resource-card">
+                <h3>Support</h3>
+                <ul>
+                    <li>Technical Mentorship</li>
+                    <li>Code Reviews</li>
+                    <li>Workshop Sessions</li>
+                    <li>Q&A Forums</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Rules Section -->
+<%- include('../components/rules-section') %>
+
+<!-- Prizes Section -->
+<%- include('../components/prizes-section', { showAdditionalInfo: true }) %>
+
+<% /* Add additional scripts */ %>
+<% additionalScripts = ['/js/animations.js'] %>

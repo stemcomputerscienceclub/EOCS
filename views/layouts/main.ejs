@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Egyptian Olympiad in Computational Science - Join the Future of Computational Science!">
+    <title><%= title %> - EOCS</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/logo-animation.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <% if (locals.additionalStyles) { %>
+        <% additionalStyles.forEach(function(style) { %>
+            <link rel="stylesheet" href="<%= style %>">
+        <% }); %>
+    <% } %>
+</head>
+<body>
+    <%- include('../components/navigation') %>
+
+    <div class="main-content">
+        <%- body %>
+    </div>
+
+    <%- include('../components/footer') %>
+
+    <script src="/js/main.js"></script>
+    <% if (locals.additionalScripts) { %>
+        <% additionalScripts.forEach(function(script) { %>
+            <script src="<%= script %>"></script>
+        <% }); %>
+    <% } %>
+</body>
+</html>
