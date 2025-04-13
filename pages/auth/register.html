@@ -31,7 +31,7 @@
           <span></span>
           <span></span>
         </button>
-      </nav>
+    </nav>
   
     <!-- Registration Form -->
     <div class="auth-container">
@@ -40,77 +40,126 @@
             <h2>Join EOCS</h2>
             <p class="auth-subtitle">Begin your journey in computational science</p>
 
-            <form class="auth-form" id="registerForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" required>
-                    </div>
+            <form class="auth-form" id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="fullNameEn">Full Name (in English)</label>
+                    <input type="text" id="fullNameEn" name="fullNameEn" required>
+                    <small class="error-text"></small>
+                    <small class="help-text">Enter your full name as it appears on official documents</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullNameAr">Full Name (in Arabic)</label>
+                    <input type="text" id="fullNameAr" name="fullNameAr" required>
+                    <small class="error-text"></small>
+                    <small class="help-text">Enter your full name in Arabic characters</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="nationalId">National ID</label>
+                    <input type="text" id="nationalId" name="nationalId" pattern="[0-9]{14}" title="National ID must be 14 digits" required>
+                    <small class="error-text"></small>
+                    <small class="help-text">Enter your 14-digit national ID number</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Birthdate</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                    <small class="error-text"></small>
+                    <small class="help-text">You must be between 14 and 19 years old to participate</small>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    </div>
+                    <small class="error-text"></small>
+                    <small class="help-text">Enter a valid email address you check regularly</small>
                 </div>
 
                 <div class="form-group">
-                    <label for="category">Category</label>
-                    <select id="category" name="category" required>
-                        <option value="">Select Category</option>
-                        <option value="high-school">Category A: High School (Grades 9-12)</option>
-                        <option value="university">Category B: University (Undergraduate)</option>
-                    </select>
-                </div>
-
-                <div class="form-group grade-year" style="display: none;">
-                    <label for="gradeYear">Grade/Year</label>
-                    <select id="gradeYear" name="gradeYear">
-                        <option value="">Select Grade/Year</option>
-                        <!-- Options will be populated by JavaScript -->
-                    </select>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" 
+                           title="Password must be at least 8 characters long and include both letters and numbers" required>
+                    <small class="error-text"></small>
                 </div>
 
                 <div class="form-group">
-                    <label for="institution">School/University Name</label>
-                    <input type="text" id="institution" name="institution" required>
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <small class="error-text"></small>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
+                    <label for="phone">Phone Number (preferably WhatsApp)</label>
                     <input type="tel" id="phone" name="phone" placeholder="01xxxxxxxxx" pattern="01[0-9]{9}" required>
+                    <small class="error-text"></small>
                 </div>
 
+                <div class="form-group">
+                    <label for="schoolName">School Name</label>
+                    <input type="text" id="schoolName" name="schoolName" required>
+                    <small class="error-text"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="governorate">School Governorate</label>
+                    <select id="governorate" name="governorate" required>
+                        <option value="">Select Governorate</option>
+                        <option value="Cairo">Cairo</option>
+                        <option value="Alexandria">Alexandria</option>
+                        <option value="Giza">Giza</option>
+                        <option value="Qalyubia">Qalyubia</option>
+                        <option value="Gharbia">Gharbia</option>
+                        <option value="Menoufia">Menoufia</option>
+                        <option value="Beheira">Beheira</option>
+                        <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+                        <option value="Damietta">Damietta</option>
+                        <option value="Port Said">Port Said</option>
+                        <option value="Ismailia">Ismailia</option>
+                        <option value="Suez">Suez</option>
+                        <option value="Sharqia">Sharqia</option>
+                        <option value="Dakahlia">Dakahlia</option>
+                        <option value="Faiyum">Faiyum</option>
+                        <option value="Beni Suef">Beni Suef</option>
+                        <option value="Minya">Minya</option>
+                        <option value="Asyut">Asyut</option>
+                        <option value="Sohag">Sohag</option>
+                        <option value="Qena">Qena</option>
+                        <option value="Luxor">Luxor</option>
+                        <option value="Aswan">Aswan</option>
+                        <option value="Red Sea">Red Sea</option>
+                        <option value="New Valley">New Valley</option>
+                        <option value="Matrouh">Matrouh</option>
+                        <option value="North Sinai">North Sinai</option>
+                        <option value="South Sinai">South Sinai</option>
+                    </select>
+                    <small class="error-text"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="gradeLevel">Grade Level</label>
+                    <select id="gradeLevel" name="gradeLevel" required>
+                        <option value="">Select Grade Level</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                    </select>
+                    <small class="error-text"></small>
+                </div>
 
                 <div class="form-error" style="display: none;">
                     <i class="fas fa-exclamation-circle"></i>
                     <span class="error-message"></span>
                 </div>
+
                 <button type="submit" class="auth-submit">
-                    <span class="button-text">Create Account</span>
+                    <span class="button-text">Register</span>
                     <span class="loading-spinner" style="display: none;">
                         <i class="fas fa-spinner fa-spin"></i>
                     </span>
                 </button>
             </form>
-
-            <div class="auth-footer">
-                <p>Already have an account? <a href="login.html">Login</a></p>
-            </div>
         </div>
 
         <!-- Decorative Elements -->
@@ -122,7 +171,6 @@
         </div>
     </div>
 
-    
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-content">
@@ -148,14 +196,10 @@
         <div class="footer-bottom">
           <p>&copy; 2025 Egyptian Olympiad in Computational Science. All rights reserved.</p>
         </div>
-      </footer>
+    </footer>
 
     <script src="../../js/main.js"></script>
     <script>
-        // Dynamic Grade/Year options based on category
-        const categorySelect = document.getElementById('category');
-        const gradeYearSelect = document.getElementById('gradeYear');
-        const gradeYearContainer = document.querySelector('.grade-year');
         const form = document.getElementById('registerForm');
         const submitButton = form.querySelector('.auth-submit');
         const buttonText = submitButton.querySelector('.button-text');
@@ -163,34 +207,50 @@
         const formError = form.querySelector('.form-error');
         const errorMessage = formError.querySelector('.error-message');
 
-        const gradeOptions = {
-            'high-school': [
-                { value: '9', label: 'Grade 9' },
-                { value: '10', label: 'Grade 10' },
-                { value: '11', label: 'Grade 11' },
-                { value: '12', label: 'Grade 12' }
-            ],
-            'university': [
-                { value: '1', label: '1st Year' },
-                { value: '2', label: '2nd Year' },
-                { value: '3', label: '3rd Year' },
-                { value: '4', label: '4th Year' }
-            ]
-        };
+        // Validation functions
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
 
-        categorySelect.addEventListener('change', function() {
-            const category = this.value;
-            gradeYearContainer.style.display = category ? 'block' : 'none';
+        function validateNationalId(id) {
+            return /^[0-9]{14}$/.test(id);
+        }
+
+        function validatePhone(phone) {
+            return /^01[0-9]{9}$/.test(phone);
+        }
+
+        function validateBirthdate(date) {
+            const birthDate = new Date(date);
+            const today = new Date();
+            const age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
             
-            if (category) {
-                gradeYearSelect.innerHTML = `
-                    <option value="">Select Grade/Year</option>
-                    ${gradeOptions[category]
-                        .map(opt => `<option value="${opt.value}">${opt.label}</option>`)
-                        .join('')}
-                `;
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
             }
-        });
+            
+            return age >= 14 && age <= 19;
+        }
+
+        function validatePassword(password) {
+            return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+        }
+
+        function showFieldError(field, message) {
+            const errorText = field.nextElementSibling;
+            errorText.textContent = message;
+            errorText.style.display = 'block';
+            field.classList.add('error');
+        }
+
+        function clearFieldError(field) {
+            const errorText = field.nextElementSibling;
+            errorText.textContent = '';
+            errorText.style.display = 'none';
+            field.classList.remove('error');
+        }
 
         function showError(message) {
             errorMessage.textContent = message;
@@ -208,37 +268,168 @@
             loadingSpinner.style.display = isLoading ? 'block' : 'none';
         }
 
-        // Form submission
+        // Real-time validation
+        const emailInput = document.getElementById('email');
+        emailInput.addEventListener('input', () => {
+            if (emailInput.value && !validateEmail(emailInput.value)) {
+                showFieldError(emailInput, 'Please enter a valid email address (e.g., name@example.com)');
+            } else {
+                clearFieldError(emailInput);
+            }
+        });
+
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+
+        passwordInput.addEventListener('input', () => {
+            if (passwordInput.value && !validatePassword(passwordInput.value)) {
+                showFieldError(passwordInput, 'Password must be at least 8 characters with both letters and numbers');
+            } else {
+                clearFieldError(passwordInput);
+            }
+            // Check confirm password match
+            if (confirmPasswordInput.value && confirmPasswordInput.value !== passwordInput.value) {
+                showFieldError(confirmPasswordInput, 'Passwords do not match');
+            } else if (confirmPasswordInput.value) {
+                clearFieldError(confirmPasswordInput);
+            }
+        });
+
+        confirmPasswordInput.addEventListener('input', () => {
+            if (confirmPasswordInput.value !== passwordInput.value) {
+                showFieldError(confirmPasswordInput, 'Passwords do not match');
+            } else {
+                clearFieldError(confirmPasswordInput);
+            }
+        });
+
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', () => {
+            if (phoneInput.value && !validatePhone(phoneInput.value)) {
+                showFieldError(phoneInput, 'Please enter a valid Egyptian mobile number (e.g., 0100xxxxxxx)');
+            } else {
+                clearFieldError(phoneInput);
+            }
+        });
+
+        const nationalIdInput = document.getElementById('nationalId');
+        nationalIdInput.addEventListener('input', () => {
+            if (nationalIdInput.value && !validateNationalId(nationalIdInput.value)) {
+                showFieldError(nationalIdInput, 'National ID must be exactly 14 digits');
+            } else {
+                clearFieldError(nationalIdInput);
+            }
+        });
+
+        const birthdateInput = document.getElementById('birthdate');
+        birthdateInput.addEventListener('change', () => {
+            if (birthdateInput.value && !validateBirthdate(birthdateInput.value)) {
+                showFieldError(birthdateInput, 'You must be between 14 and 19 years old to participate');
+            } else {
+                clearFieldError(birthdateInput);
+            }
+        });
+
+        // Form validation
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             hideError();
-            
-            // Basic validation
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                showError('Passwords do not match!');
-                return;
+            let isValid = true;
+
+            // Clear all previous errors
+            form.querySelectorAll('.error-text').forEach(error => error.textContent = '');
+            form.querySelectorAll('input, select').forEach(field => field.classList.remove('error'));
+
+            // Validate email
+            const email = document.getElementById('email');
+            if (!validateEmail(email.value)) {
+                showFieldError(email, 'Please enter a valid email address');
+                isValid = false;
             }
 
+            // Validate National ID
+            const nationalId = document.getElementById('nationalId');
+            if (!validateNationalId(nationalId.value)) {
+                showFieldError(nationalId, 'National ID must be 14 digits');
+                isValid = false;
+            }
+
+            // Validate phone
+            const phone = document.getElementById('phone');
+            if (!validatePhone(phone.value)) {
+                showFieldError(phone, 'Please enter a valid Egyptian phone number');
+                isValid = false;
+            }
+
+            // Validate password
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            if (!validatePassword(password.value)) {
+                showFieldError(password, 'Password must be at least 8 characters with letters and numbers');
+                isValid = false;
+            }
+            if (password.value !== confirmPassword.value) {
+                showFieldError(confirmPassword, 'Passwords do not match');
+                isValid = false;
+            }
+
+            // Check required fields
+            form.querySelectorAll('input[required], select[required]').forEach(field => {
+                if (!field.value.trim()) {
+                    showFieldError(field, 'This field is required');
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                showError('Please correct the errors in the form');
+                return;
+            }
+            
             try {
                 setLoading(true);
-                // Handle registration form submission
-                const formData = new FormData(this);
-                const data = Object.fromEntries(formData);
-                console.log('Registration data:', data);
-                
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Redirect to success page or show success message
-                window.location.href = 'registration-success.html';
+
+                const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdRF5cdNwTI4PaKAVPRQX4GrStAquRtPuvjBtDSAcOcDZpuLA/formResponse";
+                const formData = {
+                    "entry.906820119": document.getElementById('fullNameEn').value,
+                    "entry.663837856": document.getElementById('fullNameAr').value,
+                    "entry.1200793077": document.getElementById('nationalId').value,
+                    "entry.1590071973": document.getElementById('birthdate').value,
+                    "entry.315930843": document.getElementById('email').value,
+                    "entry.1356959310": document.getElementById('password').value,
+                    "entry.238163292": document.getElementById('phone').value,
+                    "entry.1548059878": document.getElementById('schoolName').value,
+                    "entry.1180053244": document.getElementById('governorate').value,
+                    "entry.1261290924": document.getElementById('gradeLevel').value
+                };
+
+                const data = new URLSearchParams();
+                for (const [key, value] of Object.entries(formData)) {
+                    data.append(key, value);
+                }
+
+                await fetch(formUrl, {
+                    method: "POST",
+                    mode: "no-cors",
+                    body: data,
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    }
+                });
+
+                alert("Registration submitted successfully!");
+                form.reset();
             } catch (error) {
                 showError('An error occurred during registration. Please try again.');
+                console.error('Registration error:', error);
             } finally {
                 setLoading(false);
             }
+        });
+
+        // Clear field error when user starts typing
+        form.querySelectorAll('input, select').forEach(field => {
+            field.addEventListener('input', () => clearFieldError(field));
         });
     </script>
 
@@ -262,6 +453,60 @@
         .auth-submit:disabled {
             opacity: 0.7;
             cursor: not-allowed;
+        }
+
+        /* Form validation styles */
+        .error-text {
+            color: #ff6b6b;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        input.error, select.error {
+            border-color: #ff6b6b;
+        }
+
+        /* Improve dropdown contrast */
+        select {
+            background-color: #fff;
+            color: #000;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius-sm);
+        }
+
+        select option {
+            background-color: #fff;
+            color: #000;
+            padding: 0.5rem;
+        }
+
+        /* Form group spacing */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Input and select consistent styling */
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius-sm);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
         }
     </style>
 </body>
