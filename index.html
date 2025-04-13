@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Egyptian Olympiad in Computational Science - Join the Future of Computational Science!">
+  <title>EOCS - Egyptian Olympiad in Computational Science</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/loader.css">
+  <link rel="stylesheet" href="css/logo-animation.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Egyptian Theme Loader -->
+  <div class="loader-container">
+    <div class="pyramid-container">
+      <div class="pyramid">
+        <div class="pyramid-face front"></div>
+        <div class="pyramid-face back"></div>
+        <div class="pyramid-face left"></div>
+        <div class="pyramid-face right"></div>
+        <div class="pyramid-face bottom"></div>
+      </div>
+      <div class="rotating-circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="hieroglyphic">⚛</div>
+        <div class="hieroglyphic">π</div>
+        <div class="hieroglyphic">∑</div>
+        <div class="hieroglyphic">∞</div>
+      </div>
+    </div>
+    <div class="loading-text">Welcome to EOCS</div>
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/pyramid-loader.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/advanced-animations.js"></script>
+  <script src="js/countdown.js"></script>
+
+  <script>
+    // Function to show the loader
+    function showLoader() {
+      const loader = document.querySelector('.loader-container');
+      if (loader) {
+        loader.style.display = 'flex';
+        loader.classList.remove('fade-out');
+      }
+    }
+
+    // Function to hide the loader
+    function hideLoader() {
+      const loader = document.querySelector('.loader-container');
+      if (loader) {
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 800);
+      }
+    }
+
+    // Show loader immediately
+    showLoader();
+
+    // Hide loader after a delay
+    setTimeout(() => {
+      hideLoader();
+    }, 3000);
+  </script>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="nav-logo">
+        <img src="./assets/ECOS logo - PROFILE COVER-05.svg" alt="">
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/eligibility.html">Eligibility</a>
+        <a href="pages/prizes.html">Prizes</a>
+        <a href="pages/partners.html">Partners</a>
+        <a href="pages/contact.html">Contact</a>
+        <a href="pages/auth/register.html" class="auth-btn register">Register for Competition</a>
+      </div>
+      <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+
+        <h1>EGYPTIAN OLYMPIAD IN<br>COMPUTATIONAL SCIENCE</h1>
+        <p class="hero-subtitle">Where Science Meets Technology</p>
+        <p class="hero-made-by">A High School Competition that aims to aid students learning computational techniques in many fields.</p>
+
+        <div class="countdown-boxes">
+          <div class="countdown-box">
+            <div class="countdown-number">76</div>
+            <div class="countdown-label">DAYS</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number">05</div>
+            <div class="countdown-label">HOURS</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number">30</div>
+            <div class="countdown-label">MINUTES</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number">30</div>
+            <div class="countdown-label">SECONDS</div>
+          </div>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="pages/auth/register.html" class="hero-button primary">JOIN THE COMPETITION</a>
+          <a href="pages/about.html" class="hero-button secondary">LEARN MORE</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <h2>ABOUT EOCS</h2>
+      <div class="about-text">
+        <p>The Egyptian Olympiad in Computational Science (EOCS) bridges Egypt's rich scientific heritage with cutting-edge computational innovation. We challenge students to solve complex scientific problems using modern computational methods.</p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <h3>PHYSICS COMPUTATION</h3>
+          <p>Modeling Celestial Systems, Ising Model, Molecule Diffusion, and Particle Physics</p>
+        </div>
+        <div class="about-card">
+          <h3>CHEMICAL COMPUTATION</h3>
+          <p>Modeling Molecular Geometry, Reaction Kinetics, and Drug Design</p>
+        </div>
+        <div class="about-card">
+          <h3>BIOLOGICAL COMPUTATION</h3>
+          <p>DNA Analysis, Machine Learning in Biology, Genomic and Evolutionary Analysis, and Molecular Docking</p>
+        </div>
+        <div class="about-card">
+          <h3>Mathematical COMPUTATION</h3>
+          <p>Computing Systems of Linear Equations, Numerical Caclulus, and Graph-Based genomics</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Competition Structure -->
+    <section class="competition-structure">
+      <h2>COMPETITION STRUCTURE</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+
+
+
+          <h3>ROUND 1: QUALIFICATIONS <span style="font-family:'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size:1rem;color: var(--text-primary);">(Online, Individual)</span></h3>
+          <ul>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Format: </span>Multiple-choice, short-answer theoretical questions, and basic coding exercises.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Focus:</span> Fundamental concepts in mathematics, physics, chemistry, biology, and programming.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Duration: </span> 1.5 hours</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Advancement: </span>Top 10% to 30% participants qualify for Round 2 and gain access to optional training sessions.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3>TRAINING PERIOD <span style="font-family:'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size:1rem;color: var(--text-primary);">(Optional, Team-Based)</span></h3>
+          <ul>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Format: </span> Daily sessions, covering all five competition fields.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Duration:</span> 10 days, 1 session per day.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Focus: </span>Hands-on training in computational thinking, scientific modeling, and programming.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Structure:</span>Each competition field (mathematics, physics, chemistry, biology, and programming) will have two sessions, ensuring comprehensive coverage.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Purpose: </span>Helps teams prepare for advanced rounds by introducing key computational techniques.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3>ROUND 2: NATIONAL <span style="font-family:'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size:1rem;color: var(--text-primary);">(Online, Team-Based)</span></h3>
+          <ul>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Format: </span> Advanced problem-solving with written solutions, coding implementations, and numerical simulations.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Focus:</span>Computational science applications—solving scientific problems using numerical methods, simulations, data analysis, and algorithmic approaches.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Duration: </span>2.5–3 hours</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Scoring:</span> Professors' grading based on correctness, efficiency, and scientific accuracy.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Advancement: </span> Top 8 to 16 teams qualify for the Finals.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3>ROUND 3: Finals <span style="font-family:'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size:1rem;color: var(--text-primary);">(Onsite, Hackathon-Style, Team-Based) </span></h3>
+          <ul>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Format: </span> Teams tackle one or more open-ended computational challenges over 5-6 hours.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Focus: </span>Programming, simulations, and data science techniques to solve scientific problems.</li>
+            <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Judging Criteria: </span></li>
+            <ul style="margin-left: 10%;">
+              <li>Innovation (25%)</li>
+              <li>Scientific Accuracy (25%)</li>
+              <li>Algorithm Efficiency (25%)</li>
+              <li>Presentation (25%)</li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Eligibility Section -->
+    <section class="eligibility-section">
+      <h2>ELIGIBILITY & RULES</h2>
+      <div class="eligibility-grid">
+        <div class="eligibility-card">
+          <h3>All Students Enrolled Must Be:</h3>
+          <ul class="eligibility-list">
+            <li>Egyptian or enrolled in an Egyptian School</li>
+            <li>Between Grade 9 and 12</li>
+            <li>Between 13-19 years</li>
+
+          </ul>
+        </div>
+        <div class="eligibility-card">
+          <h3>Students Must follow this rules to be qualified:</h3>
+          <ul class="eligibility-list">
+            <li>Do not use AI tools</li>
+            <li>Do not switch tabs during the exam</li>
+            <li>Take the exam in a quite room alone</li>
+            <li>Remove any electronic devices nearby but your laptop/mobile</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section class="prizes-section">
+      <h2>PRIZES & AWARDS</h2>
+      <div class="prizes-announcement">
+        <div class="announcement-card">
+          <h3>COMING SOON</h3>
+          <p>Prize details will be announced shortly. Stay tuned for exciting rewards and opportunities!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+      <h2>PARTNERS & SPONSORS</h2>
+      <div class="partners-grid">
+        <!-- <div class="partner-card">
+          <img src="assets/images/eui-logo.png" alt="EUI Logo" class="partner-logo">
+          <div class="partner-content">
+            <h3>EGYPT UNIVERSITY OF INFORMATICS</h3>
+            <p>Educational Partner</p>
+          </div>
+        </div> -->
+
+        <div class="partner-card sponsor">
+          <div class="sponsor-placeholder">
+            <h3>BECOME A SPONSOR</h3>
+            <p>Join us in computing Egypt</p>
+            <a href="pages/contact.html" class="hero-button secondary">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="pages/about.html">About EOCS</a></li>
+            <li><a href="pages/eligibility.html">Eligibility</a></li>
+            <li><a href="pages/prizes.html">Prizes</a></li>
+            <li><a href="pages/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/egyptocs" class="social-icon facebook"></a>
+            <a href="https://whatsapp.com/channel/0029Vb5QNKSKAwEiegaoYF2B" class="social-icon whatsapp"></a>
+            <a href="https://www.linkedin.com/company/eg-ocs/" class="social-icon linkedin"></a>
+            <a href="https://www.instagram.com/eg_ocs/" class="social-icon instagram"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Egyptian Olympiad in Computational Science. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/advanced-animations.js"></script>
+  <script src="js/countdown.js"></script>
+</body>
+
+</html>

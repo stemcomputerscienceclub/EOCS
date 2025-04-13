@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - EOCS</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/navigation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-logo">
+          <img src="../../assets/ECOS logo - PROFILE COVER-05.svg" alt="">
+        </div>
+        <div class="nav-links">
+          <a href="../../" class="active">Home</a>
+          <a href="../about.html">About</a>
+          <a href="../eligibility.html">Eligibility</a>
+          <a href="../prizes.html">Prizes</a>
+          <a href="../partners.html">Partners</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../auth/register.html" class="auth-btn register">Register for Competition</a>
+        </div>
+        <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+  
+    <!-- Registration Form -->
+    <div class="auth-container">
+        <div class="auth-box register-box">
+            <img src="../../assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo" class="auth-logo">
+            <h2>Join EOCS</h2>
+            <p class="auth-subtitle">Begin your journey in computational science</p>
+
+            <form class="auth-form" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select Category</option>
+                        <option value="high-school">Category A: High School (Grades 9-12)</option>
+                        <option value="university">Category B: University (Undergraduate)</option>
+                    </select>
+                </div>
+
+                <div class="form-group grade-year" style="display: none;">
+                    <label for="gradeYear">Grade/Year</label>
+                    <select id="gradeYear" name="gradeYear">
+                        <option value="">Select Grade/Year</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="institution">School/University Name</label>
+                    <input type="text" id="institution" name="institution" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="01xxxxxxxxx" pattern="01[0-9]{9}" required>
+                </div>
+
+
+                <div class="form-error" style="display: none;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span class="error-message"></span>
+                </div>
+                <button type="submit" class="auth-submit">
+                    <span class="button-text">Create Account</span>
+                    <span class="loading-spinner" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="auth-decorative-elements">
+            <div class="element dna"></div>
+            <div class="element math"></div>
+            <div class="element chemistry"></div>
+            <div class="element hieroglyph"></div>
+        </div>
+    </div>
+
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="../about.html">About EOCS</a></li>
+              <li><a href="../eligibility.html">Eligibility</a></li>
+              <li><a href="../prizes.html">Prizes</a></li>
+              <li><a href="../contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <div class="social-links">
+              <a href="https://www.facebook.com/egyptocs" class="social-icon facebook"></a>
+              <a href="https://whatsapp.com/channel/0029Vb5QNKSKAwEiegaoYF2B" class="social-icon whatsapp"></a>
+              <a href="https://www.linkedin.com/company/eg-ocs/" class="social-icon linkedin"></a>
+              <a href="https://www.instagram.com/eg_ocs/" class="social-icon instagram"></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Egyptian Olympiad in Computational Science. All rights reserved.</p>
+        </div>
+      </footer>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        // Dynamic Grade/Year options based on category
+        const categorySelect = document.getElementById('category');
+        const gradeYearSelect = document.getElementById('gradeYear');
+        const gradeYearContainer = document.querySelector('.grade-year');
+        const form = document.getElementById('registerForm');
+        const submitButton = form.querySelector('.auth-submit');
+        const buttonText = submitButton.querySelector('.button-text');
+        const loadingSpinner = submitButton.querySelector('.loading-spinner');
+        const formError = form.querySelector('.form-error');
+        const errorMessage = formError.querySelector('.error-message');
+
+        const gradeOptions = {
+            'high-school': [
+                { value: '9', label: 'Grade 9' },
+                { value: '10', label: 'Grade 10' },
+                { value: '11', label: 'Grade 11' },
+                { value: '12', label: 'Grade 12' }
+            ],
+            'university': [
+                { value: '1', label: '1st Year' },
+                { value: '2', label: '2nd Year' },
+                { value: '3', label: '3rd Year' },
+                { value: '4', label: '4th Year' }
+            ]
+        };
+
+        categorySelect.addEventListener('change', function() {
+            const category = this.value;
+            gradeYearContainer.style.display = category ? 'block' : 'none';
+            
+            if (category) {
+                gradeYearSelect.innerHTML = `
+                    <option value="">Select Grade/Year</option>
+                    ${gradeOptions[category]
+                        .map(opt => `<option value="${opt.value}">${opt.label}</option>`)
+                        .join('')}
+                `;
+            }
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            formError.style.display = 'flex';
+            formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function hideError() {
+            formError.style.display = 'none';
+        }
+
+        function setLoading(isLoading) {
+            submitButton.disabled = isLoading;
+            buttonText.style.display = isLoading ? 'none' : 'block';
+            loadingSpinner.style.display = isLoading ? 'block' : 'none';
+        }
+
+        // Form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideError();
+            
+            // Basic validation
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                showError('Passwords do not match!');
+                return;
+            }
+
+            try {
+                setLoading(true);
+                // Handle registration form submission
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                console.log('Registration data:', data);
+                
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Redirect to success page or show success message
+                window.location.href = 'registration-success.html';
+            } catch (error) {
+                showError('An error occurred during registration. Please try again.');
+            } finally {
+                setLoading(false);
+            }
+        });
+    </script>
+
+    <style>
+        .form-error {
+            display: none;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-md);
+            color: #ff6b6b;
+        }
+
+        .loading-spinner {
+            display: none;
+        }
+
+        .auth-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+    </style>
+</body>
+</html>
