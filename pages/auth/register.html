@@ -78,8 +78,8 @@
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" 
-                           title="Password must be at least 8 characters long and include both letters and numbers" required>
+                    <input type="password" id="password" name="password" pattern="[A-Za-z0-9]{8,16}"
+                           title="Password must be between 8 and 16 characters" required>
                     <small class="error-text"></small>
                 </div>
 
@@ -235,7 +235,7 @@
         }
 
         function validatePassword(password) {
-            return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+            return /^[A-Za-z0-9]{8,16}$/.test(password);
         }
 
         function showFieldError(field, message) {
@@ -283,7 +283,7 @@
 
         passwordInput.addEventListener('input', () => {
             if (passwordInput.value && !validatePassword(passwordInput.value)) {
-                showFieldError(passwordInput, 'Password must be at least 8 characters with both letters and numbers');
+                showFieldError(passwordInput, 'Password must be between 8 and 16 characters long');
             } else {
                 clearFieldError(passwordInput);
             }
