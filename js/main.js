@@ -47,8 +47,14 @@ window.addEventListener('scroll', () => {
 // Add active class to current navigation link
 function setActiveNavLink() {
     const currentPath = window.location.pathname;
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
+    const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+    
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        // Handle both relative and absolute paths
+        if (linkPath === currentPath || 
+            (currentPath.endsWith(linkPath) && linkPath !== '/') ||
+            (currentPath === '/' && linkPath === 'index.html')) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -56,27 +62,38 @@ function setActiveNavLink() {
     });
 }
 
-// Set active nav link on page load
+// Set active nav link on page load and navigation
 document.addEventListener('DOMContentLoaded', setActiveNavLink);
+window.addEventListener('popstate', setActiveNavLink);
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const mainNav = document.querySelector('.main-nav');
+const mobileNav = document.querySelector('.mobile-nav');
 
 if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         mainNav.classList.toggle('mobile-menu-active');
+        document.body.style.overflow = mainNav.classList.contains('mobile-menu-active') ? 'hidden' : '';
     });
 }
 
-// Close mobile menu when clicking outside
+// Close mobile menu when clicking outside or on a link
 document.addEventListener('click', (e) => {
-    const mobileNav = document.querySelector('.mobile-nav');
     if (mainNav.classList.contains('mobile-menu-active') &&
         !mobileNav.contains(e.target) &&
         !mobileMenuBtn.contains(e.target)) {
         mainNav.classList.remove('mobile-menu-active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Close mobile menu when clicking on a link
+mobileNav?.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+        mainNav.classList.remove('mobile-menu-active');
+        document.body.style.overflow = '';
     }
 });
 
@@ -84,5 +101,6 @@ document.addEventListener('click', (e) => {
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768 && mainNav.classList.contains('mobile-menu-active')) {
         mainNav.classList.remove('mobile-menu-active');
+        document.body.style.overflow = '';
     }
 });

@@ -155,9 +155,6 @@
 
                 <button type="submit" class="auth-submit">
                     <span class="button-text">Register</span>
-                    <span class="loading-spinner" style="display: none;">
-                        <i class="fas fa-spinner fa-spin"></i>
-                    </span>
                 </button>
             </form>
         </div>
@@ -203,7 +200,6 @@
         const form = document.getElementById('registerForm');
         const submitButton = form.querySelector('.auth-submit');
         const buttonText = submitButton.querySelector('.button-text');
-        const loadingSpinner = submitButton.querySelector('.loading-spinner');
         const formError = form.querySelector('.form-error');
         const errorMessage = formError.querySelector('.error-message');
 
@@ -260,12 +256,6 @@
 
         function hideError() {
             formError.style.display = 'none';
-        }
-
-        function setLoading(isLoading) {
-            submitButton.disabled = isLoading;
-            buttonText.style.display = isLoading ? 'none' : 'block';
-            loadingSpinner.style.display = isLoading ? 'block' : 'none';
         }
 
         // Real-time validation
@@ -387,8 +377,6 @@
             }
             
             try {
-                setLoading(true);
-
                 const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdRF5cdNwTI4PaKAVPRQX4GrStAquRtPuvjBtDSAcOcDZpuLA/formResponse";
                 const formData = {
                     "entry.906820119": document.getElementById('fullNameEn').value,
@@ -422,8 +410,6 @@
             } catch (error) {
                 showError('An error occurred during registration. Please try again.');
                 console.error('Registration error:', error);
-            } finally {
-                setLoading(false);
             }
         });
 
@@ -444,10 +430,6 @@
             border-radius: var(--border-radius-md);
             margin-bottom: var(--spacing-md);
             color: #ff6b6b;
-        }
-
-        .loading-spinner {
-            display: none;
         }
 
         .auth-submit:disabled {
