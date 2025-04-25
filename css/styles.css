@@ -840,65 +840,12 @@ h2 {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* About Section */
 .about-section {
     padding: var(--spacing-xl) var(--spacing-lg);
     background: var(--egyptian-dark);
     text-align: center;
+    margin-top: 80px;
 }
 
 .about-section h2 {
@@ -934,6 +881,11 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 4px;
     text-align: center;
+    opacity: 1;
+    transform: none;
+    word-break: break-word;
+    hyphens: auto;
+    padding: 0 var(--spacing-md);
 }
 
 /* Sample Problems Section */
@@ -1023,6 +975,9 @@ h2 {
     text-align: left;
     box-shadow: 0 0 20px rgba(173, 130, 49, 0.2);
     transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .syllabus-card:hover {
@@ -1032,6 +987,7 @@ h2 {
 
 .syllabus-card h3 {
     color: var(--egyptian-gold);
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.5rem;
     margin-bottom: var(--spacing-md);
     text-transform: uppercase;
@@ -1043,6 +999,7 @@ h2 {
     list-style: none;
     padding: 0;
     margin: 0;
+    flex-grow: 1;
 }
 
 .syllabus-card li {
@@ -1051,6 +1008,7 @@ h2 {
     margin-bottom: var(--spacing-sm);
     padding-left: var(--spacing-md);
     position: relative;
+    line-height: 1.4;
 }
 
 .syllabus-card li::before {
@@ -1065,26 +1023,47 @@ h2 {
     background: rgba(173, 130, 49, 0.1);
     border: 2px solid var(--egyptian-gold);
     border-radius: var(--border-radius-lg);
-    text-align: center;
+    padding: var(--spacing-lg);
+    text-align: left;
     box-shadow: 0 0 20px rgba(173, 130, 49, 0.2);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-card h3 {
-    font-family: 'Orbitron', sans-serif;
     color: var(--egyptian-gold);
-    font-size: 1.2rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
     margin-bottom: var(--spacing-md);
     text-transform: uppercase;
-    padding-top: var(--spacing-md);
-
     letter-spacing: 2px;
+    text-align: center;
 }
 
-.about-card p {
-    color: var(--text-primary);
-    line-height: 1.6;
-    padding: 0 var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
+.about-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
 
+.about-card li {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+    line-height: 1.4;
+}
+
+.about-card li::before {
+    content: '◈';
+    position: absolute;
+    left: 0;
+    color: var(--egyptian-gold);
+    opacity: 0.7;
 }
 
 /* Eligibility Section */
@@ -1138,44 +1117,47 @@ h2 {
 }
 
 .round-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
+    background: rgba(173, 130, 49, 0.1);
+    border: 2px solid var(--egyptian-gold);
+    border-radius: var(--border-radius-lg);
+    margin: var(--spacing-md) auto;
+    max-width: 600px;
 }
 
 .detail-item {
-    padding: var(--spacing-md);
-    background: rgba(173, 130, 49, 0.05);
-    border-radius: var(--border-radius-md);
-    border: 1px solid rgba(173, 130, 49, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid rgba(173, 130, 49, 0.3);
 }
 
-.detail-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(173, 130, 49, 0.2);
+.detail-item:last-child {
+    border-bottom: none;
 }
 
 .detail-item h4 {
     color: var(--egyptian-gold);
-    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
     margin-bottom: var(--spacing-sm);
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-family: 'Orbitron', sans-serif;
+    text-align: center;
 }
 
 .detail-item p {
     color: var(--text-primary);
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
 }
 
 .eligibility-card {
     background: rgba(173, 130, 49, 0.1);
     border: 2px solid var(--egyptian-gold);
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl);
+    margin: 0 auto;
+    max-width: 600px;
     box-shadow: 0 0 20px rgba(173, 130, 49, 0.2);
 }
 
@@ -1186,11 +1168,15 @@ h2 {
     margin-bottom: var(--spacing-lg);
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-align: center;
+    word-break: break-word;
+    hyphens: none;
 }
 
 .eligibility-list {
     list-style: none;
     padding: 0;
+    margin: 0;
     text-align: left;
 }
 
@@ -1200,6 +1186,9 @@ h2 {
     padding-left: var(--spacing-md);
     position: relative;
     font-size: 1.1rem;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
 }
 
 .eligibility-list li::before {
@@ -1833,6 +1822,7 @@ h2 {
 
 /* Auth Pages */
 .auth-container {
+    margin-top: 80px;
     min-height: 100vh;
     padding: var(--spacing-xl) var(--spacing-lg);
     background: var(--egyptian-dark);
@@ -1914,7 +1904,6 @@ h2 {
     border-radius: var(--border-radius-md);
     color: var(--text-primary);
     font-family: inherit;
-    font-size: 1rem;
 }
 
 .form-group input:focus,
@@ -2286,20 +2275,87 @@ h2 {
     }
 
     .auth-box {
-        padding: var(--spacing-md);
-        margin: var(--spacing-md);
+        margin: var(--spacing-xs);
+        padding: var(--spacing-lg);
+        width: calc(100% - var(--spacing-xs) * 2);
+        max-width: none;
     }
 
     .form-row {
         grid-template-columns: 1fr;
     }
+
+    .glowing-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        padding: 0 var(--spacing-sm);
+    }
+
+    .problems-grid,
+    .syllabus-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-md);
+        margin: var(--spacing-lg) auto 0;
+    }
+
+    .problem-card,
+    .syllabus-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: var(--spacing-lg);
+    }
+
+    .problem-card h3,
+    .syllabus-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .problem-card p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .problem-details {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        justify-content: center;
+    }
+
+    .difficulty,
+    .points {
+        width: auto;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .sample-problems-section,
+    .syllabus-section {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    section {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
 }
 
 @media (max-width: 480px) {
     .auth-box {
-        margin: var(--spacing-xs);
+        margin: 0;
         padding: var(--spacing-md);
-        width: calc(100% - var(--spacing-xs) * 2);
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .form-group {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: var(--spacing-sm) var(--spacing-md);
     }
 
     .auth-logo {
@@ -2308,11 +2364,12 @@ h2 {
     }
 
     .auth-box h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .auth-subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: var(--spacing-lg);
     }
 
     .competition-structure h2,
@@ -2338,5 +2395,312 @@ h2 {
     .announcement-card p,
     .partner-content p {
         font-size: 1rem;
+    }
+
+    .glowing-title {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .problem-card,
+    .syllabus-card {
+        padding: var(--spacing-md);
+    }
+
+    .problem-card h3,
+    .syllabus-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .syllabus-card ul {
+        padding-left: var(--spacing-sm);
+    }
+
+    .syllabus-card li {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+/* Competition Rounds Section */
+.competition-rounds {
+    margin-top: var(--spacing-xl);
+}
+
+.competition-rounds h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--egyptian-gold);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xl);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    word-break: break-word;
+    hyphens: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .eligibility-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .eligibility-card {
+        padding: var(--spacing-lg);
+        margin: 0 var(--spacing-md);
+        max-width: none;
+    }
+
+    .eligibility-card h3 {
+        font-size: 1.6rem;
+        margin-bottom: var(--spacing-md);
+        padding: 0 var(--spacing-sm);
+        letter-spacing: 1px;
+    }
+
+    .eligibility-list li {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-sm);
+        padding-left: var(--spacing-md);
+        line-height: 1.5;
+    }
+
+    .competition-rounds h2 {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-lg);
+        padding: 0 var(--spacing-md);
+    }
+
+    /* Fix title wrapping */
+    .competition-rounds h2,
+    .eligibility-card h3 {
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .eligibility-section {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .eligibility-card {
+        padding: var(--spacing-md);
+        margin: 0 var(--spacing-sm);
+        border-width: 1px;
+    }
+
+    .eligibility-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .eligibility-list li {
+        font-size: 0.95rem;
+        padding-left: var(--spacing-sm);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .competition-rounds h2 {
+        font-size: 1.6rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Improve spacing between sections */
+    .competition-rounds {
+        margin-top: var(--spacing-lg);
+    }
+}
+
+/* Fix for the title "COMPETITION ROUNDS" */
+.competition-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--egyptian-gold);
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: var(--spacing-xl) 0 var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+    word-break: break-word;
+    hyphens: none;
+}
+
+@media (max-width: 768px) {
+    .competition-title {
+        font-size: 1.6rem;
+        margin: var(--spacing-lg) 0;
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+/* Round cards styling */
+.round-card {
+    background: rgba(173, 130, 49, 0.1);
+    border: 2px solid var(--egyptian-gold);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 0 20px rgba(173, 130, 49, 0.2);
+}
+
+.round-card h3 {
+    color: var(--egyptian-gold);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .round-card {
+        padding: var(--spacing-md);
+        margin: 0 var(--spacing-md) var(--spacing-md);
+    }
+
+    .round-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .round-card {
+        padding: var(calc(--spacing-md/2));
+        margin: 0 ;
+    }
+
+    .round-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+/* Custom Alert Styling */
+.alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.alert-box {
+    background: var(--egyptian-dark);
+    border: 2px solid var(--egyptian-gold);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    max-width: 90%;
+    width: 400px;
+    position: relative;
+    animation: alertAppear 0.3s ease-out;
+    box-shadow: 0 0 30px rgba(173, 130, 49, 0.3);
+}
+
+.alert-box::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gold-gradient);
+    opacity: 0.1;
+    border-radius: var(--border-radius-lg);
+    z-index: -1;
+}
+
+.alert-title {
+    color: var(--egyptian-gold);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.alert-message {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.4;
+}
+
+.alert-button {
+    background: var(--egyptian-gold);
+    color: var(--egyptian-dark);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    min-width: 120px;
+}
+
+.alert-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(173, 130, 49, 0.4);
+}
+
+.alert-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    background: rgba(173, 130, 49, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--egyptian-gold);
+}
+
+.alert-icon::before {
+    content: '✓';
+    color: var(--egyptian-gold);
+    font-size: 2rem;
+}
+
+@keyframes alertAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .alert-box {
+        width: 85%;
+        padding: var(--spacing-lg);
+    }
+
+    .alert-title {
+        font-size: 1.2rem;
+    }
+
+    .alert-message {
+        font-size: 1rem;
+    }
+
+    .alert-button {
+        padding: var(--spacing-sm) var(--spacing-lg);
     }
 }

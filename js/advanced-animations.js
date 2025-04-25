@@ -85,16 +85,18 @@ const textRevealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.animation = 'textReveal 1s forwards';
+            entry.target.style.opacity = '1';
         }
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('h2, h3, .timeline-card p, .prize-card li').forEach(el => {
+// Only select specific elements that should have the reveal animation
+document.querySelectorAll('.timeline-card p, .prize-card li, .animate-on-scroll').forEach(el => {
     el.style.opacity = '0';
     textRevealObserver.observe(el);
 });
 
-// Add glowing text effect to headings
+// Add glowing text effect to headings without affecting opacity
 document.querySelectorAll('h1, h2').forEach(heading => {
     heading.style.animation = 'textGlow 3s ease-in-out infinite';
 });
