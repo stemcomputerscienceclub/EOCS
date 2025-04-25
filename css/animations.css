@@ -6,8 +6,9 @@
 }
 
 @keyframes glow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+    0% { filter: drop-shadow(0 0 5px var(--egyptian-gold)); }
+    50% { filter: drop-shadow(0 0 15px var(--egyptian-gold)); }
+    100% { filter: drop-shadow(0 0 5px var(--egyptian-gold)); }
 }
 
 @keyframes shimmer {
@@ -31,7 +32,7 @@
 section h2 {
     position: relative;
     padding-bottom: 20px;
-    opacity: 1;
+    opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -40,6 +41,7 @@ section h2.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 @keyframes pulseAnkh {
     0%, 100% {
@@ -226,35 +228,5 @@ section h2.visible {
     * {
         animation: none !important;
         transition: none !important;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
     }
 }

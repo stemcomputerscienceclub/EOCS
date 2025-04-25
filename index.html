@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/loader.css">
   <link rel="stylesheet" href="css/logo-animation.css">
   <link rel="stylesheet" href="css/navigation.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,13 +17,82 @@
 </head>
 
 <body>
+  <!-- Egyptian Theme Loader -->
+  <div class="loader-container">
+    <div class="pyramid-container">
+      <div class="pyramid">
+        <div class="pyramid-face front"></div>
+        <div class="pyramid-face back"></div>
+        <div class="pyramid-face left"></div>
+        <div class="pyramid-face right"></div>
+        <div class="pyramid-face bottom"></div>
+      </div>
+      <div class="rotating-circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="hieroglyphic">⚛</div>
+        <div class="hieroglyphic">π</div>
+        <div class="hieroglyphic">∑</div>
+        <div class="hieroglyphic">∞</div>
+      </div>
+    </div>
+    <div class="loading-text">Welcome to EOCS</div>
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/pyramid-loader.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/advanced-animations.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/mobile-menu.js"></script>
+
+  <script>
+    // Function to show the loader
+    function showLoader() {
+      const loader = document.querySelector('.loader-container');
+      if (loader) {
+        loader.style.display = 'flex';
+        loader.classList.remove('fade-out');
+      }
+    }
+
+    // Function to hide the loader
+    function hideLoader() {
+      const loader = document.querySelector('.loader-container');
+      if (loader) {
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 800);
+      }
+    }
+
+    // Show loader immediately
+    showLoader();
+
+    // Hide loader after a delay
+    setTimeout(() => {
+      hideLoader();
+    }, 3000);
+  </script>
+
   <!-- Main Content -->
   <div class="main-content">
     <!-- Navigation -->
     <nav class="main-nav">
       <div class="nav-logo">
-        <img src="./assets/ECOS logo - PROFILE COVER-05.svg" alt="">
+        <img src="./assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo">
       </div>
+      <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <div class="nav-links desktop-nav">
         <a href="index.html" class="active">Home</a>
         <a href="pages/about.html">About</a>
@@ -41,16 +111,12 @@
         <a href="pages/contact.html">Contact</a>
         <a href="pages/auth/register.html" class="auth-btn register">Register for Competition</a>
       </div>
-      <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
+
         <h1>EGYPTIAN OLYMPIAD IN<br>COMPUTATIONAL SCIENCE</h1>
         <p class="hero-subtitle">Where Science Meets Technology</p>
         <p class="hero-made-by">A High School Competition that aims to aid students learning computational techniques in many fields.</p>
@@ -113,6 +179,9 @@
       <h2>COMPETITION STRUCTURE</h2>
       <div class="timeline">
         <div class="timeline-item">
+
+
+
           <h3>ROUND 1: QUALIFICATIONS <span style="font-family:'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; font-size:1rem;color: var(--text-primary);">(Online, Individual)</span></h3>
           <ul>
             <li><span style="font-size:1.2em;color: var(--egyptian-gold);"> Format: </span>Multiple-choice, short-answer theoretical questions, and basic coding exercises.</li>
@@ -248,7 +317,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/pyramid-loader.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/advanced-animations.js"></script>
   <script src="js/countdown.js"></script>

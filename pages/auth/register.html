@@ -15,22 +15,31 @@
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-logo">
-          <img src="../../assets/ECOS logo - PROFILE COVER-05.svg" alt="">
-        </div>
-        <div class="nav-links">
-          <a href="../../" class="active">Home</a>
-          <a href="../about.html">About</a>
-          <a href="../eligibility.html">Eligibility</a>
-          <a href="../prizes.html">Prizes</a>
-          <a href="../partners.html">Partners</a>
-          <a href="../contact.html">Contact</a>
-          <a href="../auth/register.html" class="auth-btn register">Register for Competition</a>
+          <img src="../../assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo">
         </div>
         <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
           <span></span>
         </button>
+        <div class="nav-links desktop-nav">
+          <a href="../../index.html">Home</a>
+          <a href="../about.html">About</a>
+          <a href="../eligibility.html">Eligibility</a>
+          <a href="../prizes.html">Prizes</a>
+          <a href="../partners.html">Partners</a>
+          <a href="../contact.html">Contact</a>
+          <a href="register.html" class="auth-btn register active">Register for Competition</a>
+        </div>
+        <div class="mobile-nav">
+          <a href="../../index.html">Home</a>
+          <a href="../about.html">About</a>
+          <a href="../eligibility.html">Eligibility</a>
+          <a href="../prizes.html">Prizes</a>
+          <a href="../partners.html">Partners</a>
+          <a href="../contact.html">Contact</a>
+          <a href="register.html" class="auth-btn register active">Register for Competition</a>
+        </div>
     </nav>
   
     <!-- Registration Form -->
@@ -155,6 +164,9 @@
 
                 <button type="submit" class="auth-submit">
                     <span class="button-text">Register</span>
+                    <span class="loading-spinner" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
                 </button>
             </form>
         </div>
@@ -200,6 +212,7 @@
         const form = document.getElementById('registerForm');
         const submitButton = form.querySelector('.auth-submit');
         const buttonText = submitButton.querySelector('.button-text');
+        const loadingSpinner = submitButton.querySelector('.loading-spinner');
         const formError = form.querySelector('.form-error');
         const errorMessage = formError.querySelector('.error-message');
 
@@ -256,6 +269,12 @@
 
         function hideError() {
             formError.style.display = 'none';
+        }
+
+        function setLoading(isLoading) {
+            submitButton.disabled = isLoading;
+            buttonText.style.display = isLoading ? 'none' : 'block';
+            loadingSpinner.style.display = isLoading ? 'block' : 'none';
         }
 
         // Real-time validation
@@ -377,6 +396,8 @@
             }
             
             try {
+                setLoading(true);
+
                 const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdRF5cdNwTI4PaKAVPRQX4GrStAquRtPuvjBtDSAcOcDZpuLA/formResponse";
                 const formData = {
                     "entry.906820119": document.getElementById('fullNameEn').value,
@@ -410,6 +431,8 @@
             } catch (error) {
                 showError('An error occurred during registration. Please try again.');
                 console.error('Registration error:', error);
+            } finally {
+                setLoading(false);
             }
         });
 
@@ -430,6 +453,10 @@
             border-radius: var(--border-radius-md);
             margin-bottom: var(--spacing-md);
             color: #ff6b6b;
+        }
+
+        .loading-spinner {
+            display: none;
         }
 
         .auth-submit:disabled {

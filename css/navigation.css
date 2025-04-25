@@ -84,25 +84,6 @@
     width: 80%;
 }
 
-/* Active State Design */
-.nav-links a.active {
-    color: var(--text-accent);
-    background: var(--bg-hover);
-    box-shadow: 0 0 10px rgba(173, 130, 49, 0.3);
-}
-
-.nav-links a.active::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -5px;
-    width: 3px;
-    height: 60%;
-    background: var(--egyptian-gold);
-    transform: translateY(-50%);
-    border-radius: 2px;
-}
-
 /* Authentication Buttons */
 .auth-btn {
     padding: 0.5rem 1.5rem;
@@ -133,9 +114,9 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: var(--spacing-sm);
-    transition: all 0.3s ease;
-    z-index: 1000;
+    padding: 0.5rem;
+    z-index: 1001;
+    position: relative;
 }
 
 .mobile-menu-btn span {
@@ -147,83 +128,62 @@
     transition: all 0.3s ease;
 }
 
-.mobile-menu-active .mobile-menu-btn span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobile-menu-active .mobile-menu-btn span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-active .mobile-menu-btn span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
 /* Mobile Navigation */
 .mobile-nav {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--egyptian-dark);
-    padding: var(--spacing-xl);
+    width: 100%;
+    height: 100vh;
+    background: rgba(63, 57, 56, 0.98);
+    padding-top: 80px;
     flex-direction: column;
-    gap: var(--spacing-md);
-    box-shadow: 0 4px 15px rgba(173, 130, 49, 0.2);
-    transform: translateY(-100%);
-    transition: transform 0.3s ease;
-    z-index: 999;
-}
-
-.mobile-menu-active .mobile-nav {
-    display: flex;
-    transform: translateY(0);
+    align-items: center;
+    gap: 20px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
 }
 
 .mobile-nav a {
-    display: block;
-    padding: var(--spacing-sm) var(--spacing-md);
     color: var(--text-primary);
     text-decoration: none;
-    font-weight: 600;
-    border-radius: var(--border-radius-sm);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.mobile-nav a:hover,
-.mobile-nav a.active {
-    color: var(--text-accent);
-    background: var(--bg-hover);
-    padding-left: var(--spacing-lg);
-}
-
-.mobile-nav a.active::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: var(--spacing-sm);
-    width: 3px;
-    height: 60%;
-    background: var(--egyptian-gold);
-    transform: translateY(-50%);
-    border-radius: 2px;
-}
-
-.mobile-nav a.auth-btn {
-    margin-top: var(--spacing-md);
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    width: 80%;
     text-align: center;
-    background: var(--egyptian-gold);
-    color: var(--egyptian-dark);
-    border: none;
+    border-bottom: 1px solid rgba(173, 130, 49, 0.2);
+    transition: all 0.3s ease;
 }
 
-.mobile-nav a.auth-btn:hover {
-    background: var(--egyptian-gold);
-    opacity: 0.9;
-    transform: translateY(-2px);
+.mobile-nav a:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav a:hover {
+    color: var(--egyptian-gold);
+    transform: translateX(10px);
+}
+
+/* Mobile Menu Active States */
+.main-nav.mobile-menu-active .mobile-nav {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-nav.mobile-menu-active .mobile-menu-btn span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.main-nav.mobile-menu-active .mobile-menu-btn span:nth-child(2) {
+    opacity: 0;
+}
+
+.main-nav.mobile-menu-active .mobile-menu-btn span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* Responsive Design */
@@ -246,13 +206,22 @@
         display: block;
     }
 
+    .main-nav {
+        padding: 15px 20px;
+    }
+
     .auth-btn {
         padding: 0.4rem 1.2rem;
         font-size: 0.9rem;
+        width: 100%;
+        text-align: center;
+        margin-top: var(--spacing-sm);
     }
+}
 
-    .main-nav {
-        padding: var(--spacing-sm);
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none !important;
     }
 }
 
@@ -265,15 +234,8 @@
         height: 30px;
     }
 
-    .mobile-nav {
-        padding: var(--spacing-lg);
+    .auth-btn {
+        padding: 0.3rem 1rem;
+        font-size: 0.8rem;
     }
-
-    .mobile-nav a {
-        font-size: 1.1rem;
-    }
-}
-
-.nav-link {
-    opacity: 1;
 }
