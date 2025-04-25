@@ -19,10 +19,13 @@ class CountdownTimer {
             if (this.interval) {
                 clearInterval(this.interval);
             }
-            if (this.countdownElement) {
-                this.countdownElement.innerHTML = "<h2>Registration Closed</h2>";
-            }
-            return null;
+            // Update display to show zeros when countdown is finished
+            return {
+                days: 0,
+                hours: 0,
+                minutes: 0,
+                seconds: 0
+            };
         }
 
         return {
@@ -76,9 +79,9 @@ class CountdownTimer {
     }
 }
 
-// Set deadline to 3 months from now
+// Set deadline to 20 days from now
 const deadline = new Date();
-deadline.setMonth(deadline.getMonth() + 3);
+deadline.setDate(deadline.getDate() + 20);
 
 // Initialize and start the countdown
 document.addEventListener('DOMContentLoaded', () => {

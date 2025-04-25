@@ -2704,3 +2704,679 @@ h2 {
         padding: var(--spacing-sm) var(--spacing-lg);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Custom Properties */
+:root {
+    /* Core Colors */
+    --egyptian-gold: #ad8231;
+    /* Accent color for highlights */
+    --egyptian-dark: #3f3938;
+    /* Background color */
+    --egyptian-light: #f5f0ec;
+    /* Primary text color */
+    --egyptian-gray: #606060;
+    /* Secondary text color */
+    --egyptian-beige: #e4d5bd;
+    /* Secondary accent color */
+
+    /* Text Colors */
+    --text-primary: var(--egyptian-light);
+    --text-secondary: var(--egyptian-gray);
+    --text-accent: var(--egyptian-gold);
+
+    /* Effects */
+    --gold-glow: 0 0 20px rgba(173, 130, 49, 0.4);
+    --beige-glow: 0 0 30px rgba(228, 213, 189, 0.5);
+
+    /* Backgrounds */
+    --bg-primary: var(--beige-glow);
+    --bg-overlay: var(--egyptian-dark);
+    --bg-card: rgba(63, 57, 56, 0.9);
+    --bg-hover: rgba(173, 130, 49, 0.1);
+
+    /* Gradients */
+    --gold-gradient: linear-gradient(45deg, var(--egyptian-gold), var(--egyptian-beige));
+    --dark-gradient: linear-gradient(45deg, var(--egyptian-dark), var(--egyptian-dark));
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+}
+
+/* Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--beige-glow);
+    background-image:
+        linear-gradient(rgba(63, 57, 56, 0.97), rgba(63, 57, 56, 0.97)),
+        url('../images/hieroglyphs-pattern.svg');
+    background-blend-mode: overlay;
+    background-size: 200px;
+    background-repeat: repeat;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-shadow: 0 0 10px var(--egyptian-gold),
+        0 0 20px var(--egyptian-gold),
+        0 0 30px var(--egyptian-gold);
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: transparent;
+    text-align: center;
+    position: relative;
+    padding-bottom: var(--spacing-md);
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: var(--gold-glow);
+}
+
+/* Hero Section */
+/* .hero {
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+    position: relative;
+    background: var(--egyptian-dark);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/hieroglyphs-pattern.svg') center/200px repeat;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid var(--egyptian-gold);
+    border-radius: var(--border-radius-lg);
+    background: rgba(63, 57, 56, 0.7);
+    box-shadow: 0 0 30px rgba(173, 130, 49, 0.2);
+}
+
+.hero-logo {
+    width: 150px;
+    margin: 0 auto 2rem;
+    filter: drop-shadow(0 0 10px var(--egyptian-gold));
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--egyptian-gold);
+    text-shadow: 0 0 20px rgba(173, 130, 49, 0.5);
+    letter-spacing: 4px;
+}
+
+.hero-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.hero-made-by {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+    position: relative;
+    background: var(--bg-primary) url('../assets/images/hieroglyphs-pattern.svg') center/cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(45deg, rgba(173, 130, 49, 0.1) 0%, transparent 40%),
+        linear-gradient(-45deg, rgba(173, 130, 49, 0.1) 0%, transparent 40%);
+    animation: backgroundShimmer 10s infinite linear;
+}
+
+@keyframes backgroundShimmer {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 200% 200%;
+    }
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-box {
+    background: var(--bg-card);
+    border: 2px solid var(--egyptian-gold);
+    box-shadow:
+        0 0 20px rgba(173, 130, 49, 0.2),
+        inset 0 0 20px rgba(173, 130, 49, 0.1);
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+}
+
+.hero-box::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gold-gradient);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.hero-box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(173, 130, 49, 0.1),
+            transparent);
+    animation: shine 3s infinite;
+    transform-origin: center;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.glowing-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    text-shadow:
+        0 0 15px var(--egyptian-gold),
+        0 0 30px var(--egyptian-beige);
+    position: relative;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-logo {
+    width: 150px;
+    height: auto;
+    margin: 0 auto var(--spacing-md);
+    filter: drop-shadow(0 0 8px var(--primary-light));
+}
+
+.hero-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 1px;
+}
+
+.hero-made-by {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Countdown Boxes */
+.countdown-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.countdown-box {
+    background: rgba(173, 130, 49, 0.1);
+    border: 2px solid var(--egyptian-gold);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(173, 130, 49, 0.2);
+}
+
+.countdown-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--egyptian-gold);
+    text-shadow: 0 0 10px rgba(173, 130, 49, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.hero-button {
+    padding: 1rem 2rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--border-radius-md);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.hero-button.primary {
+    background: var(--egyptian-gold);
+    color: var(--egyptian-dark);
+    border: none;
+}
+
+.hero-button.secondary {
+    background: transparent;
+    color: var(--egyptian-gold);
+    border: 2px solid var(--egyptian-gold);
+}
+
+.hero-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(173, 130, 49, 0.3);
+}
+
+/* Competition Structure */
+.competition-structure {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background: var(--egyptian-dark);
+    text-align: center;
+}
+
+.competition-structure h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: var(--egyptian-gold);
+    margin-bottom: var(--spacing-xl);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--egyptian-gold);
+    opacity: 0.3;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    background: rgba(173, 130, 49, 0.1);
+    border: 2px solid var(--egyptian-gold);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    position: relative;
+    width: 45%;
+    margin-left: auto;
+    box-shadow: 0 0 20px rgba(173, 130, 49, 0.2);
+    text-align: left;
+}
+
+.timeline-item:nth-child(odd) {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.timeline-item h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--egyptian-gold);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.timeline-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-item li {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.timeline-item li::before {
+    content: '◈';
+    position: absolute;
+    left: 0;
+    color: var(--egyptian-gold);
+    opacity: 0.7;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: var(--egyptian-gold);
+    border-radius: 50%;
+    top: 50%;
+    right: -44px;
+    transform: translateY(-50%);
+    box-shadow: 0 0 15px rgba(173, 130, 49, 0.5);
+}
+
+.timeline-item:nth-child(odd)::before {
+    right: auto;
+    left: -44px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .timeline-item {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
