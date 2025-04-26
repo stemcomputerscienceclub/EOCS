@@ -19,14 +19,8 @@
 <body>
   <!-- Egyptian Theme Loader -->
   <div class="loader-container">
-    <div class="pyramid-container">
-      <div class="pyramid">
-        <div class="pyramid-face front"></div>
-        <div class="pyramid-face back"></div>
-        <div class="pyramid-face left"></div>
-        <div class="pyramid-face right"></div>
-        <div class="pyramid-face bottom"></div>
-      </div>
+    <div class="loader-logo">
+      <img src="./assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo">
     </div>
     <div class="loading-text">Welcome to EOCS</div>
     <div class="progress-bar">
@@ -35,7 +29,6 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/pyramid-loader.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/advanced-animations.js"></script>
   <script src="js/countdown.js"></script>
@@ -62,13 +55,25 @@
       }
     }
 
-    // Show loader immediately
-    showLoader();
-
-    // Hide loader after a delay
-    setTimeout(() => {
-      hideLoader();
-    }, 3000);
+    // Check if it's the first visit
+    if (!localStorage.getItem('hasVisited')) {
+      // Show loader immediately
+      showLoader();
+      
+      // Set the flag in localStorage
+      localStorage.setItem('hasVisited', 'true');
+      
+      // Hide loader after a delay
+      setTimeout(() => {
+        hideLoader();
+      }, 3000);
+    } else {
+      // If not first visit, hide loader immediately
+      const loader = document.querySelector('.loader-container');
+      if (loader) {
+        loader.style.display = 'none';
+      }
+    }
   </script>
 
   <!-- Main Content -->
@@ -307,7 +312,6 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/pyramid-loader.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/advanced-animations.js"></script>
   <script src="js/countdown.js"></script>
