@@ -155,9 +155,9 @@
 
 /* Logo */
 .loader-logo {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 2rem;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 0;
     animation: logoPulse 2s ease-in-out;
 }
 
@@ -282,6 +282,10 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .loader-container {
+        padding: 0 20px;
+    }
+
     .pyramid-container {
         width: 150px;
         height: 150px;
@@ -305,12 +309,37 @@
     }
 
     .loading-text {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        text-align: center;
+        padding: 0 10px;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
     }
 
     .progress-bar {
         width: 250px;
         height: 6px;
+    }
+
+    .loader-logo {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loader-logo {
+        width: 180px;
+        height: 180px;
+    }
+
+    .loading-text {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    .progress-bar {
+        width: 220px;
     }
 }
 
