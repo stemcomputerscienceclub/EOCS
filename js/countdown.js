@@ -80,9 +80,7 @@ class CountdownTimer {
 }
 
 // Set deadline to 20 days from now
-const deadline = new Date();
-deadline.setDate(deadline.getDate() + 20);
-
+const deadline = new Date("2025-05-20");
 // Initialize and start the countdown
 document.addEventListener('DOMContentLoaded', () => {
     const countdown = new CountdownTimer(deadline);
