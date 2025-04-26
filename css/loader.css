@@ -157,7 +157,7 @@
 .loader-logo {
     width: 250px;
     height: 250px;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
     animation: logoPulse 2s ease-in-out;
 }
 
