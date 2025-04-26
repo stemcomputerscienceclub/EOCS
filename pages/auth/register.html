@@ -94,7 +94,8 @@
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$" title="Password must be 8-16 characters, include uppercase, lowercase, number, and special character" required>
+          <input type="password" id="password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$"
+                 title="Password must be at least 8 characters and include at least one letter and one number" required>
           <small class="error-text"></small>
         </div>
 
@@ -251,7 +252,7 @@
     }
 
     function validatePassword(password) {
-      return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/.test(password);
+      return /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(password);
     }
 
     function showFieldError(field, message) {
@@ -302,7 +303,7 @@
 
     passwordInput.addEventListener('input', () => {
       if (passwordInput.value && !validatePassword(passwordInput.value)) {
-        showFieldError(passwordInput, 'Password must be between 8 and 16 characters long');
+        showFieldError(passwordInput, 'Password must be at least 8 characters and include at least one letter and one number');
       } else {
         clearFieldError(passwordInput);
       }
@@ -384,7 +385,7 @@
       const password = document.getElementById('password');
       const confirmPassword = document.getElementById('confirmPassword');
       if (!validatePassword(password.value)) {
-        showFieldError(password, 'Password must be at least 8 characters with letters and numbers');
+        showFieldError(password, 'Password must be at least 8 characters and include at least one letter and one number');
         isValid = false;
       }
       if (password.value !== confirmPassword.value) {
