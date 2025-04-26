@@ -1023,20 +1023,24 @@ h2 {
     background: rgba(173, 130, 49, 0.1);
     border: 2px solid var(--egyptian-gold);
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-lg);
-    text-align: left;
+    padding: var(--spacing-sm);
+    text-align: center;
     box-shadow: 0 0 20px rgba(173, 130, 49, 0.2);
     transition: transform 0.3s ease;
     height: 100%;
+    overflow: auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
 .about-card h3 {
     color: var(--egyptian-gold);
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: var(--spacing-md);
+    width: fill-available;
     text-transform: uppercase;
     letter-spacing: 2px;
     text-align: center;

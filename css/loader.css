@@ -258,3 +258,122 @@
         width: 150px;
     }
 }
+
+/* Loader background motif (faint hieroglyphs or grid) */
+.loader-bg-motif {
+    position: absolute;
+    inset: 0;
+    background: url('../assets/images/hieroglyphs-pattern.svg') center/200px repeat;
+    opacity: 0.07;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Matrix/data stream effect */
+.loader-matrix {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    overflow: hidden;
+}
+.loader-matrix::before, .loader-matrix::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--egyptian-gold) 0%, transparent 100%);
+    opacity: 0.15;
+    left: 20%;
+    animation: matrixStream 2.5s linear infinite;
+}
+.loader-matrix::after {
+    left: 70%;
+    animation-delay: 1.2s;
+}
+@keyframes matrixStream {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
+/* Loader ankh/digital symbol */
+.loader-ankh {
+    position: absolute;
+    left: 50%;
+    bottom: -40px;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    color: var(--egyptian-gold);
+    text-shadow: 0 0 20px var(--egyptian-gold), 0 0 40px var(--egyptian-gold);
+    font-family: 'Orbitron', sans-serif;
+    z-index: 3;
+    animation: loaderAnkhGlow 2s infinite alternate;
+}
+@keyframes loaderAnkhGlow {
+    0% { text-shadow: 0 0 10px var(--egyptian-gold); }
+    100% { text-shadow: 0 0 30px var(--egyptian-gold), 0 0 60px var(--egyptian-gold); }
+}
+
+/* Loader title */
+.loader-title {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, 0);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--egyptian-gold);
+    letter-spacing: 0.2em;
+    text-shadow: 0 0 10px var(--egyptian-gold);
+    z-index: 3;
+    animation: loaderTitleGlow 2s infinite alternate;
+}
+@keyframes loaderTitleGlow {
+    0% { text-shadow: 0 0 10px var(--egyptian-gold); }
+    100% { text-shadow: 0 0 30px var(--egyptian-gold), 0 0 60px var(--egyptian-gold); }
+}
+
+/* Progress bar: data transfer look */
+.progress-bar {
+    position: absolute;
+    bottom: 80px;
+    width: 180px;
+    height: 4px;
+    background: rgba(173, 130, 49, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(173, 130, 49, 0.3);
+}
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--egyptian-gold),
+        var(--egyptian-gold) 10px,
+        var(--egyptian-bright-gold) 10px,
+        var(--egyptian-bright-gold) 20px
+    );
+    width: 0%;
+    animation: progressFill 2s ease-in-out forwards, progressMove 1s linear infinite;
+    box-shadow: 0 0 10px var(--egyptian-gold);
+}
+@keyframes progressMove {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 40px; }
+}
+
+/* Loader text */
+.loading-text {
+    position: absolute;
+    bottom: 30px;
+    color: var(--egyptian-gold);
+    font-size: 1.2rem;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px rgba(173, 130, 49, 0.5);
+    z-index: 3;
+    letter-spacing: 0.1em;
+    opacity: 0.9;
+}
