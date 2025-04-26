@@ -1,527 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - EOCS</title>
-    <link rel="stylesheet" href="../../css/normalize.css">
-    <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/animations.css">
-    <link rel="stylesheet" href="../../css/navigation.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../../assets/favicon/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/favicon-180x180.png">
-    <link rel="manifest" href="../../assets/favicon/site.webmanifest">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - EOCS</title>
+  <link rel="stylesheet" href="../../css/normalize.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../../assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/favicon-180x180.png">
+  <link rel="manifest" href="../../assets/favicon/site.webmanifest">
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-logo">
-          <img src="../../assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo">
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-logo">
+      <img src="../../assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo">
+    </div>
+    <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links desktop-nav">
+      <a href="../../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../eligibility.html">Eligibility</a>
+      <a href="../prizes.html">Prizes</a>
+      <a href="../partners.html">Partners</a>
+      <a href="../contact.html">Contact</a>
+      <a href="register.html" class="auth-btn register active">Register for Competition</a>
+    </div>
+    <div class="mobile-nav">
+      <a href="../../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../eligibility.html">Eligibility</a>
+      <a href="../prizes.html">Prizes</a>
+      <a href="../partners.html">Partners</a>
+      <a href="../contact.html">Contact</a>
+      <a href="register.html" class="auth-btn register active">Register for Competition</a>
+    </div>
+  </nav>
+
+  <!-- Registration Form -->
+  <div class="auth-container">
+    <div class="auth-box register-box">
+      <img src="../../assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo" class="auth-logo">
+      <h2>Join EOCS</h2>
+      <p class="auth-subtitle">Begin your journey in computational science</p>
+
+      <form class="auth-form" id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="fullNameEn">Full Name (in English)</label>
+          <input type="text" id="fullNameEn" name="fullNameEn" required>
+          <small class="error-text"></small>
+          <small class="help-text">Enter your full name as it appears on official documents</small>
         </div>
-        <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
+
+        <div class="form-group">
+          <label for="fullNameAr">Full Name (in Arabic)</label>
+          <input type="text" id="fullNameAr" name="fullNameAr" required>
+          <small class="error-text"></small>
+          <small class="help-text">Enter your full name in Arabic characters</small>
+        </div>
+
+        <div class="form-group">
+          <label for="nationalId">National ID</label>
+          <input type="text" id="nationalId" name="nationalId" pattern="[0-9]{14}" title="National ID must be 14 digits" required>
+          <small class="error-text"></small>
+          <small class="help-text">Enter your 14-digit national ID number</small>
+        </div>
+
+        <div class="form-group">
+          <label for="birthdate">Birthdate</label>
+          <input type="date" id="birthdate" name="birthdate" required>
+          <small class="error-text"></small>
+          <small class="help-text">You must be between 14 and 19 years old to participate</small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+          <small class="error-text"></small>
+          <small class="help-text">Enter a valid email address you check regularly</small>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$" title="Password must be 8-16 characters, include uppercase, lowercase, number, and special character"required>
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number (preferably WhatsApp)</label>
+          <input type="tel" id="phone" name="phone" placeholder="01xxxxxxxxx" pattern="01[0-9]{9}" required>
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="schoolName">School Name</label>
+          <input type="text" id="schoolName" name="schoolName" required>
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="governorate">School Governorate</label>
+          <select id="governorate" name="governorate" required>
+            <option value="">Select Governorate</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Alexandria">Alexandria</option>
+            <option value="Giza">Giza</option>
+            <option value="Qalyubia">Qalyubia</option>
+            <option value="Gharbia">Gharbia</option>
+            <option value="Menoufia">Menoufia</option>
+            <option value="Beheira">Beheira</option>
+            <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+            <option value="Damietta">Damietta</option>
+            <option value="Port Said">Port Said</option>
+            <option value="Ismailia">Ismailia</option>
+            <option value="Suez">Suez</option>
+            <option value="Sharqia">Sharqia</option>
+            <option value="Dakahlia">Dakahlia</option>
+            <option value="Faiyum">Faiyum</option>
+            <option value="Beni Suef">Beni Suef</option>
+            <option value="Minya">Minya</option>
+            <option value="Asyut">Asyut</option>
+            <option value="Sohag">Sohag</option>
+            <option value="Qena">Qena</option>
+            <option value="Luxor">Luxor</option>
+            <option value="Aswan">Aswan</option>
+            <option value="Red Sea">Red Sea</option>
+            <option value="New Valley">New Valley</option>
+            <option value="Matrouh">Matrouh</option>
+            <option value="North Sinai">North Sinai</option>
+            <option value="South Sinai">South Sinai</option>
+          </select>
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="gradeLevel">Grade Level</label>
+          <select id="gradeLevel" name="gradeLevel" required>
+            <option value="">Select Grade Level</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="11">Grade 11</option>
+            <option value="12">Grade 12</option>
+          </select>
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-error" style="display: none;">
+          <i class="fas fa-exclamation-circle"></i>
+          <span class="error-message"></span>
+        </div>
+
+        <button type="submit" class="auth-submit">
+          <span class="button-text">Register</span>
+          <span class="loading-spinner" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i>
+          </span>
         </button>
-        <div class="nav-links desktop-nav">
-          <a href="../../index.html">Home</a>
-          <a href="../about.html">About</a>
-          <a href="../eligibility.html">Eligibility</a>
-          <a href="../prizes.html">Prizes</a>
-          <a href="../partners.html">Partners</a>
-          <a href="../contact.html">Contact</a>
-          <a href="register.html" class="auth-btn register active">Register for Competition</a>
-        </div>
-        <div class="mobile-nav">
-          <a href="../../index.html">Home</a>
-          <a href="../about.html">About</a>
-          <a href="../eligibility.html">Eligibility</a>
-          <a href="../prizes.html">Prizes</a>
-          <a href="../partners.html">Partners</a>
-          <a href="../contact.html">Contact</a>
-          <a href="register.html" class="auth-btn register active">Register for Competition</a>
-        </div>
-    </nav>
-  
-    <!-- Registration Form -->
-    <div class="auth-container">
-        <div class="auth-box register-box">
-            <img src="../../assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo" class="auth-logo">
-            <h2>Join EOCS</h2>
-            <p class="auth-subtitle">Begin your journey in computational science</p>
-
-            <form class="auth-form" id="registerForm" novalidate>
-                <div class="form-group">
-                    <label for="fullNameEn">Full Name (in English)</label>
-                    <input type="text" id="fullNameEn" name="fullNameEn" required>
-                    <small class="error-text"></small>
-                    <small class="help-text">Enter your full name as it appears on official documents</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="fullNameAr">Full Name (in Arabic)</label>
-                    <input type="text" id="fullNameAr" name="fullNameAr" required>
-                    <small class="error-text"></small>
-                    <small class="help-text">Enter your full name in Arabic characters</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="nationalId">National ID</label>
-                    <input type="text" id="nationalId" name="nationalId" pattern="[0-9]{14}" title="National ID must be 14 digits" required>
-                    <small class="error-text"></small>
-                    <small class="help-text">Enter your 14-digit national ID number</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="birthdate">Birthdate</label>
-                    <input type="date" id="birthdate" name="birthdate" required>
-                    <small class="error-text"></small>
-                    <small class="help-text">You must be between 14 and 19 years old to participate</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                    <small class="error-text"></small>
-                    <small class="help-text">Enter a valid email address you check regularly</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" pattern="[A-Za-z0-9]{8,16}"
-                           title="Password must be between 8 and 16 characters" required>
-                    <small class="error-text"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    <small class="error-text"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number (preferably WhatsApp)</label>
-                    <input type="tel" id="phone" name="phone" placeholder="01xxxxxxxxx" pattern="01[0-9]{9}" required>
-                    <small class="error-text"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="schoolName">School Name</label>
-                    <input type="text" id="schoolName" name="schoolName" required>
-                    <small class="error-text"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="governorate">School Governorate</label>
-                    <select id="governorate" name="governorate" required>
-                        <option value="">Select Governorate</option>
-                        <option value="Cairo">Cairo</option>
-                        <option value="Alexandria">Alexandria</option>
-                        <option value="Giza">Giza</option>
-                        <option value="Qalyubia">Qalyubia</option>
-                        <option value="Gharbia">Gharbia</option>
-                        <option value="Menoufia">Menoufia</option>
-                        <option value="Beheira">Beheira</option>
-                        <option value="Kafr El Sheikh">Kafr El Sheikh</option>
-                        <option value="Damietta">Damietta</option>
-                        <option value="Port Said">Port Said</option>
-                        <option value="Ismailia">Ismailia</option>
-                        <option value="Suez">Suez</option>
-                        <option value="Sharqia">Sharqia</option>
-                        <option value="Dakahlia">Dakahlia</option>
-                        <option value="Faiyum">Faiyum</option>
-                        <option value="Beni Suef">Beni Suef</option>
-                        <option value="Minya">Minya</option>
-                        <option value="Asyut">Asyut</option>
-                        <option value="Sohag">Sohag</option>
-                        <option value="Qena">Qena</option>
-                        <option value="Luxor">Luxor</option>
-                        <option value="Aswan">Aswan</option>
-                        <option value="Red Sea">Red Sea</option>
-                        <option value="New Valley">New Valley</option>
-                        <option value="Matrouh">Matrouh</option>
-                        <option value="North Sinai">North Sinai</option>
-                        <option value="South Sinai">South Sinai</option>
-                    </select>
-                    <small class="error-text"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="gradeLevel">Grade Level</label>
-                    <select id="gradeLevel" name="gradeLevel" required>
-                        <option value="">Select Grade Level</option>
-                        <option value="9">Grade 9</option>
-                        <option value="10">Grade 10</option>
-                        <option value="11">Grade 11</option>
-                        <option value="12">Grade 12</option>
-                    </select>
-                    <small class="error-text"></small>
-                </div>
-
-                <div class="form-error" style="display: none;">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <span class="error-message"></span>
-                </div>
-
-                <button type="submit" class="auth-submit">
-                    <span class="button-text">Register</span>
-                    <span class="loading-spinner" style="display: none;">
-                        <i class="fas fa-spinner fa-spin"></i>
-                    </span>
-                </button>
-            </form>
-        </div>
-
-        <!-- Decorative Elements -->
-        <div class="auth-decorative-elements">
-            <div class="element dna"></div>
-            <div class="element math"></div>
-            <div class="element chemistry"></div>
-            <div class="element hieroglyph"></div>
-        </div>
+      </form>
     </div>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="../about.html">About EOCS</a></li>
-              <li><a href="../eligibility.html">Eligibility</a></li>
-              <li><a href="../prizes.html">Prizes</a></li>
-              <li><a href="../contact.html">Contact Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h3>Connect With Us</h3>
-            <div class="social-links">
-              <a href="https://www.facebook.com/egyptocs" class="social-icon facebook"></a>
-              <a href="https://whatsapp.com/channel/0029Vb5QNKSKAwEiegaoYF2B" class="social-icon whatsapp"></a>
-              <a href="https://www.linkedin.com/company/eg-ocs/" class="social-icon linkedin"></a>
-              <a href="https://www.instagram.com/eg_ocs/" class="social-icon instagram"></a>
-            </div>
-          </div>
+    <!-- Decorative Elements -->
+    <div class="auth-decorative-elements">
+      <div class="element dna"></div>
+      <div class="element math"></div>
+      <div class="element chemistry"></div>
+      <div class="element hieroglyph"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="../about.html">About EOCS</a></li>
+          <li><a href="../eligibility.html">Eligibility</a></li>
+          <li><a href="../prizes.html">Prizes</a></li>
+          <li><a href="../contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/egyptocs" class="social-icon facebook"></a>
+          <a href="https://whatsapp.com/channel/0029Vb5QNKSKAwEiegaoYF2B" class="social-icon whatsapp"></a>
+          <a href="https://www.linkedin.com/company/eg-ocs/" class="social-icon linkedin"></a>
+          <a href="https://www.instagram.com/eg_ocs/" class="social-icon instagram"></a>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2025 Egyptian Olympiad in Computational Science. All rights reserved.</p>
-        </div>
-    </footer>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Egyptian Olympiad in Computational Science. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <script src="../../js/main.js"></script>
-    <script>
-        const form = document.getElementById('registerForm');
-        const submitButton = form.querySelector('.auth-submit');
-        const buttonText = submitButton.querySelector('.button-text');
-        const loadingSpinner = submitButton.querySelector('.loading-spinner');
-        const formError = form.querySelector('.form-error');
-        const errorMessage = formError.querySelector('.error-message');
+  <script src="../../js/main.js"></script>
+  <script>
+    const form = document.getElementById('registerForm');
+    const submitButton = form.querySelector('.auth-submit');
+    const buttonText = submitButton.querySelector('.button-text');
+    const loadingSpinner = submitButton.querySelector('.loading-spinner');
+    const formError = form.querySelector('.form-error');
+    const errorMessage = formError.querySelector('.error-message');
 
-        // Validation functions
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
+    // Validation functions
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function validateNationalId(id) {
+      return /^[0-9]{14}$/.test(id);
+    }
+
+    function validatePhone(phone) {
+      return /^01[0-9]{9}$/.test(phone);
+    }
+
+    function validateBirthdate(date) {
+      const birthDate = new Date(date);
+      const today = new Date();
+      const age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      return age >= 14 && age <= 19;
+    }
+
+    function validatePassword(password) {
+        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/.test(password);
+    }
+
+    function showFieldError(field, message) {
+      const errorText = field.nextElementSibling;
+      errorText.textContent = message;
+      errorText.style.display = 'block';
+      field.classList.add('error');
+    }
+
+    function clearFieldError(field) {
+      const errorText = field.nextElementSibling;
+      errorText.textContent = '';
+      errorText.style.display = 'none';
+      field.classList.remove('error');
+    }
+
+    function showError(message) {
+      errorMessage.textContent = message;
+      formError.style.display = 'flex';
+      formError.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+
+    function hideError() {
+      formError.style.display = 'none';
+    }
+
+    function setLoading(isLoading) {
+      submitButton.disabled = isLoading;
+      buttonText.style.display = isLoading ? 'none' : 'block';
+      loadingSpinner.style.display = isLoading ? 'block' : 'none';
+    }
+
+    // Real-time validation
+    const emailInput = document.getElementById('email');
+    emailInput.addEventListener('input', () => {
+      if (emailInput.value && !validateEmail(emailInput.value)) {
+        showFieldError(emailInput, 'Please enter a valid email address (e.g., name@example.com)');
+      } else {
+        clearFieldError(emailInput);
+      }
+    });
+
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+
+    passwordInput.addEventListener('input', () => {
+      if (passwordInput.value && !validatePassword(passwordInput.value)) {
+        showFieldError(passwordInput, 'Password must be between 8 and 16 characters long');
+      } else {
+        clearFieldError(passwordInput);
+      }
+      // Check confirm password match
+      if (confirmPasswordInput.value && confirmPasswordInput.value !== passwordInput.value) {
+        showFieldError(confirmPasswordInput, 'Passwords do not match');
+      } else if (confirmPasswordInput.value) {
+        clearFieldError(confirmPasswordInput);
+      }
+    });
+
+    confirmPasswordInput.addEventListener('input', () => {
+      if (confirmPasswordInput.value !== passwordInput.value) {
+        showFieldError(confirmPasswordInput, 'Passwords do not match');
+      } else {
+        clearFieldError(confirmPasswordInput);
+      }
+    });
+
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', () => {
+      if (phoneInput.value && !validatePhone(phoneInput.value)) {
+        showFieldError(phoneInput, 'Please enter a valid Egyptian mobile number (e.g., 0100xxxxxxx)');
+      } else {
+        clearFieldError(phoneInput);
+      }
+    });
+
+    const nationalIdInput = document.getElementById('nationalId');
+    nationalIdInput.addEventListener('input', () => {
+      if (nationalIdInput.value && !validateNationalId(nationalIdInput.value)) {
+        showFieldError(nationalIdInput, 'National ID must be exactly 14 digits');
+      } else {
+        clearFieldError(nationalIdInput);
+      }
+    });
+
+    const birthdateInput = document.getElementById('birthdate');
+    birthdateInput.addEventListener('change', () => {
+      if (birthdateInput.value && !validateBirthdate(birthdateInput.value)) {
+        showFieldError(birthdateInput, 'You must be between 14 and 19 years old to participate');
+      } else {
+        clearFieldError(birthdateInput);
+      }
+    });
+
+    // Form validation
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      hideError();
+      let isValid = true;
+
+      // Clear all previous errors
+      form.querySelectorAll('.error-text').forEach(error => error.textContent = '');
+      form.querySelectorAll('input, select').forEach(field => field.classList.remove('error'));
+
+      // Validate email
+      const email = document.getElementById('email');
+      if (!validateEmail(email.value)) {
+        showFieldError(email, 'Please enter a valid email address');
+        isValid = false;
+      }
+
+      // Validate National ID
+      const nationalId = document.getElementById('nationalId');
+      if (!validateNationalId(nationalId.value)) {
+        showFieldError(nationalId, 'National ID must be 14 digits');
+        isValid = false;
+      }
+
+      // Validate phone
+      const phone = document.getElementById('phone');
+      if (!validatePhone(phone.value)) {
+        showFieldError(phone, 'Please enter a valid Egyptian phone number');
+        isValid = false;
+      }
+
+      // Validate password
+      const password = document.getElementById('password');
+      const confirmPassword = document.getElementById('confirmPassword');
+      if (!validatePassword(password.value)) {
+        showFieldError(password, 'Password must be at least 8 characters with letters and numbers');
+        isValid = false;
+      }
+      if (password.value !== confirmPassword.value) {
+        showFieldError(confirmPassword, 'Passwords do not match');
+        isValid = false;
+      }
+
+      // Check required fields
+      form.querySelectorAll('input[required], select[required]').forEach(field => {
+        if (!field.value.trim()) {
+          showFieldError(field, 'This field is required');
+          isValid = false;
+        }
+      });
+
+      if (!isValid) {
+        showError('Please correct the errors in the form');
+        return;
+      }
+
+      try {
+        setLoading(true);
+
+        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdRF5cdNwTI4PaKAVPRQX4GrStAquRtPuvjBtDSAcOcDZpuLA/formResponse";
+        const formData = {
+          "entry.906820119": document.getElementById('fullNameEn').value,
+          "entry.663837856": document.getElementById('fullNameAr').value,
+          "entry.1200793077": document.getElementById('nationalId').value,
+          "entry.1590071973": document.getElementById('birthdate').value,
+          "entry.315930843": document.getElementById('email').value,
+          "entry.1356959310": document.getElementById('password').value,
+          "entry.238163292": document.getElementById('phone').value,
+          "entry.1548059878": document.getElementById('schoolName').value,
+          "entry.1180053244": document.getElementById('governorate').value,
+          "entry.1261290924": document.getElementById('gradeLevel').value
+        };
+
+        const data = new URLSearchParams();
+        for (const [key, value] of Object.entries(formData)) {
+          data.append(key, value);
         }
 
-        function validateNationalId(id) {
-            return /^[0-9]{14}$/.test(id);
-        }
-
-        function validatePhone(phone) {
-            return /^01[0-9]{9}$/.test(phone);
-        }
-
-        function validateBirthdate(date) {
-            const birthDate = new Date(date);
-            const today = new Date();
-            const age = today.getFullYear() - birthDate.getFullYear();
-            const monthDiff = today.getMonth() - birthDate.getMonth();
-            
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
-            
-            return age >= 14 && age <= 19;
-        }
-
-        function validatePassword(password) {
-            return /^[A-Za-z0-9]{8,16}$/.test(password);
-        }
-
-        function showFieldError(field, message) {
-            const errorText = field.nextElementSibling;
-            errorText.textContent = message;
-            errorText.style.display = 'block';
-            field.classList.add('error');
-        }
-
-        function clearFieldError(field) {
-            const errorText = field.nextElementSibling;
-            errorText.textContent = '';
-            errorText.style.display = 'none';
-            field.classList.remove('error');
-        }
-
-        function showError(message) {
-            errorMessage.textContent = message;
-            formError.style.display = 'flex';
-            formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        function hideError() {
-            formError.style.display = 'none';
-        }
-
-        function setLoading(isLoading) {
-            submitButton.disabled = isLoading;
-            buttonText.style.display = isLoading ? 'none' : 'block';
-            loadingSpinner.style.display = isLoading ? 'block' : 'none';
-        }
-
-        // Real-time validation
-        const emailInput = document.getElementById('email');
-        emailInput.addEventListener('input', () => {
-            if (emailInput.value && !validateEmail(emailInput.value)) {
-                showFieldError(emailInput, 'Please enter a valid email address (e.g., name@example.com)');
-            } else {
-                clearFieldError(emailInput);
-            }
+        await fetch(formUrl, {
+          method: "POST",
+          mode: "no-cors",
+          body: data,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
         });
 
-        const passwordInput = document.getElementById('password');
-        const confirmPasswordInput = document.getElementById('confirmPassword');
+        alert("Registration submitted successfully!");
+        form.reset();
+      } catch (error) {
+        showError('An error occurred during registration. Please try again.');
+        console.error('Registration error:', error);
+      } finally {
+        setLoading(false);
+      }
+    });
 
-        passwordInput.addEventListener('input', () => {
-            if (passwordInput.value && !validatePassword(passwordInput.value)) {
-                showFieldError(passwordInput, 'Password must be between 8 and 16 characters long');
-            } else {
-                clearFieldError(passwordInput);
-            }
-            // Check confirm password match
-            if (confirmPasswordInput.value && confirmPasswordInput.value !== passwordInput.value) {
-                showFieldError(confirmPasswordInput, 'Passwords do not match');
-            } else if (confirmPasswordInput.value) {
-                clearFieldError(confirmPasswordInput);
-            }
-        });
+    // Clear field error when user starts typing
+    form.querySelectorAll('input, select').forEach(field => {
+      field.addEventListener('input', () => clearFieldError(field));
+    });
+  </script>
 
-        confirmPasswordInput.addEventListener('input', () => {
-            if (confirmPasswordInput.value !== passwordInput.value) {
-                showFieldError(confirmPasswordInput, 'Passwords do not match');
-            } else {
-                clearFieldError(confirmPasswordInput);
-            }
-        });
+  <style>
+    .form-error {
+      display: none;
+      align-items: center;
+      gap: var(--spacing-sm);
+      background: rgba(255, 0, 0, 0.1);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      padding: var(--spacing-sm);
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-md);
+      color: #ff6b6b;
+    }
 
-        const phoneInput = document.getElementById('phone');
-        phoneInput.addEventListener('input', () => {
-            if (phoneInput.value && !validatePhone(phoneInput.value)) {
-                showFieldError(phoneInput, 'Please enter a valid Egyptian mobile number (e.g., 0100xxxxxxx)');
-            } else {
-                clearFieldError(phoneInput);
-            }
-        });
+    .loading-spinner {
+      display: none;
+    }
 
-        const nationalIdInput = document.getElementById('nationalId');
-        nationalIdInput.addEventListener('input', () => {
-            if (nationalIdInput.value && !validateNationalId(nationalIdInput.value)) {
-                showFieldError(nationalIdInput, 'National ID must be exactly 14 digits');
-            } else {
-                clearFieldError(nationalIdInput);
-            }
-        });
+    .auth-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
 
-        const birthdateInput = document.getElementById('birthdate');
-        birthdateInput.addEventListener('change', () => {
-            if (birthdateInput.value && !validateBirthdate(birthdateInput.value)) {
-                showFieldError(birthdateInput, 'You must be between 14 and 19 years old to participate');
-            } else {
-                clearFieldError(birthdateInput);
-            }
-        });
+    /* Form validation styles */
+    .error-text {
+      color: #ff6b6b;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: block;
+    }
 
-        // Form validation
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            hideError();
-            let isValid = true;
+    input.error,
+    select.error {
+      border-color: #ff6b6b;
+    }
 
-            // Clear all previous errors
-            form.querySelectorAll('.error-text').forEach(error => error.textContent = '');
-            form.querySelectorAll('input, select').forEach(field => field.classList.remove('error'));
+    /* Improve dropdown contrast */
+    select {
+      background-color: #fff;
+      color: #000;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius-sm);
+    }
 
-            // Validate email
-            const email = document.getElementById('email');
-            if (!validateEmail(email.value)) {
-                showFieldError(email, 'Please enter a valid email address');
-                isValid = false;
-            }
+    select option {
+      background-color: #fff;
+      color: #000;
+      padding: 0.5rem;
+    }
 
-            // Validate National ID
-            const nationalId = document.getElementById('nationalId');
-            if (!validateNationalId(nationalId.value)) {
-                showFieldError(nationalId, 'National ID must be 14 digits');
-                isValid = false;
-            }
+    /* Form group spacing */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
 
-            // Validate phone
-            const phone = document.getElementById('phone');
-            if (!validatePhone(phone.value)) {
-                showFieldError(phone, 'Please enter a valid Egyptian phone number');
-                isValid = false;
-            }
+    /* Input and select consistent styling */
+    input,
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius-sm);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
 
-            // Validate password
-            const password = document.getElementById('password');
-            const confirmPassword = document.getElementById('confirmPassword');
-            if (!validatePassword(password.value)) {
-                showFieldError(password, 'Password must be at least 8 characters with letters and numbers');
-                isValid = false;
-            }
-            if (password.value !== confirmPassword.value) {
-                showFieldError(confirmPassword, 'Passwords do not match');
-                isValid = false;
-            }
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    }
 
-            // Check required fields
-            form.querySelectorAll('input[required], select[required]').forEach(field => {
-                if (!field.value.trim()) {
-                    showFieldError(field, 'This field is required');
-                    isValid = false;
-                }
-            });
-
-            if (!isValid) {
-                showError('Please correct the errors in the form');
-                return;
-            }
-            
-            try {
-                setLoading(true);
-
-                const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdRF5cdNwTI4PaKAVPRQX4GrStAquRtPuvjBtDSAcOcDZpuLA/formResponse";
-                const formData = {
-                    "entry.906820119": document.getElementById('fullNameEn').value,
-                    "entry.663837856": document.getElementById('fullNameAr').value,
-                    "entry.1200793077": document.getElementById('nationalId').value,
-                    "entry.1590071973": document.getElementById('birthdate').value,
-                    "entry.315930843": document.getElementById('email').value,
-                    "entry.1356959310": document.getElementById('password').value,
-                    "entry.238163292": document.getElementById('phone').value,
-                    "entry.1548059878": document.getElementById('schoolName').value,
-                    "entry.1180053244": document.getElementById('governorate').value,
-                    "entry.1261290924": document.getElementById('gradeLevel').value
-                };
-
-                const data = new URLSearchParams();
-                for (const [key, value] of Object.entries(formData)) {
-                    data.append(key, value);
-                }
-
-                await fetch(formUrl, {
-                    method: "POST",
-                    mode: "no-cors",
-                    body: data,
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded"
-                    }
-                });
-
-                alert("Registration submitted successfully!");
-                form.reset();
-            } catch (error) {
-                showError('An error occurred during registration. Please try again.');
-                console.error('Registration error:', error);
-            } finally {
-                setLoading(false);
-            }
-        });
-
-        // Clear field error when user starts typing
-        form.querySelectorAll('input, select').forEach(field => {
-            field.addEventListener('input', () => clearFieldError(field));
-        });
-    </script>
-
-    <style>
-        .form-error {
-            display: none;
-            align-items: center;
-            gap: var(--spacing-sm);
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            padding: var(--spacing-sm);
-            border-radius: var(--border-radius-md);
-            margin-bottom: var(--spacing-md);
-            color: #ff6b6b;
-        }
-
-        .loading-spinner {
-            display: none;
-        }
-
-        .auth-submit:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        /* Form validation styles */
-        .error-text {
-            color: #ff6b6b;
-            font-size: 0.8rem;
-            margin-top: 0.25rem;
-            display: block;
-        }
-
-        input.error, select.error {
-            border-color: #ff6b6b;
-        }
-
-        /* Improve dropdown contrast */
-        select {
-            background-color: #fff;
-            color: #000;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: var(--border-radius-sm);
-        }
-
-        select option {
-            background-color: #fff;
-            color: #000;
-            padding: 0.5rem;
-        }
-
-        /* Form group spacing */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        /* Input and select consistent styling */
-        input, select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: var(--border-radius-sm);
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        input:focus, select:focus {
-            outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-    </style>
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+  </style>
 </body>
+
 </html>
