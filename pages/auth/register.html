@@ -248,7 +248,7 @@
         age--;
       }
 
-      return age >= 14 && age <= 19;
+      return age >= 14 && age <= 25;
     }
 
     function validatePassword(password) {
@@ -344,7 +344,7 @@
     const birthdateInput = document.getElementById('birthdate');
     birthdateInput.addEventListener('change', () => {
       if (birthdateInput.value && !validateBirthdate(birthdateInput.value)) {
-        showFieldError(birthdateInput, 'You must be between 14 and 19 years old to participate');
+        showFieldError(birthdateInput, 'You must be between 14 and 25 years old to participate');
       } else {
         clearFieldError(birthdateInput);
       }
