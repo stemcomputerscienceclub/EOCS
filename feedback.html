@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback - EOCS</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/favicon-180x180.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+</head>
+
+<body>
+  <nav class="main-nav">
+    <div class="nav-logo">
+      <img src="assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo">
+    </div>
+    <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/eligibility.html">Eligibility</a>
+      <a href="pages/prizes.html">Prizes</a>
+      <a href="pages/partners.html">Partners</a>
+      <a href="pages/contact.html">Contact</a>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/eligibility.html">Eligibility</a>
+      <a href="pages/prizes.html">Prizes</a>
+      <a href="pages/partners.html">Partners</a>
+      <a href="pages/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Feedback Form -->
+  <div class="auth-container">
+    <div class="auth-box feedback-box">
+      <img src="assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo" class="auth-logo">
+      <h2>EOCS Qualifications Feedback</h2>
+      <p class="auth-subtitle">We'd love to hear your thoughts!</p>
+      
+      <div class="feedback-intro">
+        <p>Thank you for participating in the EOCS Qualification Round. Your feedback is incredibly valuable and will help us improve future rounds of the competition. Please take a minute to share your experience—whether it's about the questions, technical platform, clarity of instructions, or anything else.</p>
+        <p>This form is anonymous unless you choose to include your name or email.</p>
+        <p>Let us know what went well and where we can do better!</p>
+      </div>
+
+      <form class="auth-form" id="feedbackForm" novalidate>
+        <div class="form-group">
+          <label for="name">Name (Optional)</label>
+          <input type="text" id="name" name="name">
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email (Optional)</label>
+          <input type="email" id="email" name="email">
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone (Optional)</label>
+          <input type="tel" id="phone" name="phone">
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="feedback">Your Feedback</label>
+          <textarea id="feedback" name="feedback" rows="6" required></textarea>
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-error" style="display: none;">
+          <i class="fas fa-exclamation-circle"></i>
+          <span class="error-message"></span>
+        </div>
+
+        <button type="submit" class="auth-submit">
+          <span class="button-text">Submit Feedback</span>
+          <span class="loading-spinner" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i>
+          </span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Decorative Elements -->
+    <div class="auth-decorative-elements">
+      <div class="element dna"></div>
+      <div class="element math"></div>
+      <div class="element chemistry"></div>
+      <div class="element hieroglyph"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/egyptocs" class="social-icon facebook"></a>
+          <a href="https://whatsapp.com/channel/0029Vb5QNKSKAwEiegaoYF2B" class="social-icon whatsapp"></a>
+          <a href="https://www.linkedin.com/company/eg-ocs/" class="social-icon linkedin"></a>
+          <a href="https://www.instagram.com/eg_ocs/" class="social-icon instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Egyptian Olympiad in Computational Science. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const submitButton = form.querySelector('.auth-submit');
+    const buttonText = submitButton.querySelector('.button-text');
+    const loadingSpinner = submitButton.querySelector('.loading-spinner');
+    const formError = form.querySelector('.form-error');
+    const errorMessage = formError.querySelector('.error-message');
+
+    // Validation functions
+    function validateEmail(email) {
+      if (!email) return true; // Optional field
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function showFieldError(field, message) {
+      const errorText = field.nextElementSibling;
+      errorText.textContent = message;
+      errorText.style.display = 'block';
+      field.classList.add('error');
+    }
+
+    function clearFieldError(field) {
+      const errorText = field.nextElementSibling;
+      errorText.textContent = '';
+      errorText.style.display = 'none';
+      field.classList.remove('error');
+    }
+
+    function showError(message) {
+      errorMessage.textContent = message;
+      formError.style.display = 'flex';
+      formError.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+
+    function hideError() {
+      formError.style.display = 'none';
+    }
+
+    function setLoading(isLoading) {
+      submitButton.disabled = isLoading;
+      buttonText.style.display = isLoading ? 'none' : 'block';
+      loadingSpinner.style.display = isLoading ? 'block' : 'none';
+    }
+
+    // Real-time validation
+    const emailInput = document.getElementById('email');
+    emailInput.addEventListener('input', () => {
+      if (emailInput.value && !validateEmail(emailInput.value)) {
+        showFieldError(emailInput, 'Please enter a valid email address (e.g., name@example.com)');
+      } else {
+        clearFieldError(emailInput);
+      }
+    });
+
+    // Form submission
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      hideError();
+      let isValid = true;
+
+      // Clear all previous errors
+      form.querySelectorAll('.error-text').forEach(error => error.textContent = '');
+      form.querySelectorAll('input, textarea').forEach(field => field.classList.remove('error'));
+
+      // Validate email if provided
+      const email = document.getElementById('email');
+      if (email.value && !validateEmail(email.value)) {
+        showFieldError(email, 'Please enter a valid email address');
+        isValid = false;
+      }
+
+      // Validate required feedback
+      const feedback = document.getElementById('feedback');
+      if (!feedback.value.trim()) {
+        showFieldError(feedback, 'Please provide your feedback');
+        isValid = false;
+      }
+
+      if (!isValid) {
+        showError('Please correct the errors in the form');
+        return;
+      }
+
+      try {
+        setLoading(true);
+
+        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSf-kYt9RNGPQ9Gr5cOz5_QFBFJ1dZFWJilyfErriIqQUPl3Ww/formResponse";
+        const formData = {
+          "entry.2074005771": document.getElementById('name').value,
+          "entry.1506283135": document.getElementById('email').value,
+          "entry.932981094": document.getElementById('phone').value,
+          "entry.844843996": document.getElementById('feedback').value
+        };
+
+        const data = new URLSearchParams();
+        for (const [key, value] of Object.entries(formData)) {
+          data.append(key, value);
+        }
+
+        await fetch(formUrl, {
+          method: "POST",
+          mode: "no-cors",
+          body: data,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        });
+
+        alert("Thank you for your feedback!");
+        form.reset();
+      } catch (error) {
+        showError('An error occurred while submitting your feedback. Please try again.');
+        console.error('Submission error:', error);
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    // Clear field error when user starts typing
+    form.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('input', () => clearFieldError(field));
+    });
+  </script>
+
+  <style>
+    .feedback-intro {
+      text-align: left;
+      margin-bottom: 2rem;
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .feedback-intro p {
+      margin-bottom: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius-sm);
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    }
+
+    .form-error {
+      display: none;
+      align-items: center;
+      gap: var(--spacing-sm);
+      background: rgba(255, 0, 0, 0.1);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      padding: var(--spacing-sm);
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-md);
+      color: #ff6b6b;
+    }
+
+    .loading-spinner {
+      display: none;
+    }
+
+    .auth-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .error-text {
+      color: #ff6b6b;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    input.error,
+    textarea.error {
+      border-color: #ff6b6b;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius-sm);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .feedback-box {
+      max-width: 800px;
+    }
+  </style>
+</body>
+
+</html> 
