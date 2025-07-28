@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Checker - EOCS</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/favicon-180x180.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+</head>
+
+<body>
+  <nav class="main-nav">
+    <div class="nav-logo">
+      <img src="assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo">
+    </div>
+    <button class="mobile-menu-btn" title="Toggle Menu" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/eligibility.html">Eligibility</a>
+      <a href="pages/prizes.html">Prizes</a>
+      <a href="pages/partners.html">Partners</a>
+      <a href="pages/contact.html">Contact</a>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/eligibility.html">Eligibility</a>
+      <a href="pages/prizes.html">Prizes</a>
+      <a href="pages/partners.html">Partners</a>
+      <a href="pages/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Team Checker -->
+  <div class="auth-container">
+    <div class="auth-box team-checker-box">
+      <img src="assets/ECOS logo - PROFILE COVER-05.svg" alt="EOCS Logo" class="auth-logo">
+      <h2>Team Information Checker</h2>
+      <p class="auth-subtitle">Enter your email to find your team details</p>
+      
+      <div class="team-checker-intro">
+        <p>Enter the email address you used during registration to view your team information, including team name, members, and contact details.</p>
+      </div>
+
+      <form class="auth-form" id="teamCheckerForm" novalidate>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your registered email">
+          <small class="error-text"></small>
+        </div>
+
+        <div class="form-error" id="formError" style="display: none;">
+          <i class="fas fa-exclamation-circle"></i>
+          <span class="error-message"></span>
+        </div>
+
+        <button type="submit" class="auth-submit">
+          <span class="button-text">Find My Team</span>
+          <span class="loading-spinner" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i>
+          </span>
+        </button>
+      </form>
+
+      <!-- Team Information Display -->
+      <div id="teamInfo" class="team-info-display" style="display: none;">
+        <div class="team-card">
+          <div class="team-header">
+            <h3 id="teamName"></h3>
+            <span id="memberCount" class="member-count"></span>
+          </div>
+          <div class="team-members" id="teamMembers">
+            <!-- Team members will be populated here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- No Team Found Message -->
+      <div id="noTeamFound" class="no-team-message" style="display: none;">
+        <div class="message-content">
+          <i class="fas fa-search"></i>
+          <h3>No Team Found</h3>
+          <p>We couldn't find a team with that email address. Please check your email and try again, or contact us if you believe this is an error.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative Elements -->
+    <div class="auth-decorative-elements">
+      <div class="element dna"></div>
+      <div class="element math"></div>
+      <div class="element chemistry"></div>
+      <div class="element hieroglyph"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/egyptocs" class="social-icon facebook"></a>
+          <a href="https://whatsapp.com/channel/0029Vb5QNKSKAwEiegaoYF2B" class="social-icon whatsapp"></a>
+          <a href="https://www.linkedin.com/company/eg-ocs/" class="social-icon linkedin"></a>
+          <a href="https://www.instagram.com/eg_ocs/" class="social-icon instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Egyptian Olympiad in Computational Science. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Team data will be loaded from CSV
+    let teamsData = [];
+
+    // Load CSV data
+    async function loadTeamsData() {
+      try {
+        const response = await fetch('assets/data/teams.csv');
+        const csvText = await response.text();
+        teamsData = parseCSV(csvText);
+      } catch (error) {
+        console.error('Error loading teams data:', error);
+        showError('Failed to load team data. Please try again later.');
+      }
+    }
+
+    // Parse CSV data
+    function parseCSV(csvText) {
+      const lines = csvText.split('\n');
+      const headers = lines[0].split(',');
+      const teams = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+        
+        const values = parseCSVLine(line);
+        if (values.length > 1 && values[0]) { // Skip empty team names
+          const team = {
+            teamName: values[0],
+            memberCount: parseInt(values[1]) || 0,
+            members: []
+          };
+
+          // Parse team members (starting from index 2, groups of 3: name, email, phone)
+          for (let j = 2; j < values.length; j += 3) {
+            if (values[j] && values[j].trim()) { // Check if member name exists
+              team.members.push({
+                name: values[j].trim(),
+                email: values[j + 1] ? values[j + 1].trim() : '',
+                phone: values[j + 2] ? values[j + 2].trim() : ''
+              });
+            }
+          }
+
+          teams.push(team);
+        }
+      }
+
+      return teams;
+    }
+
+    // Parse a single CSV line (handles commas within quoted fields)
+    function parseCSVLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+      
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        
+        if (char === '"') {
+          inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+          result.push(current);
+          current = '';
+        } else {
+          current += char;
+        }
+      }
+      
+      result.push(current);
+      return result;
+    }
+
+    // Find team by email
+    function findTeamByEmail(email) {
+      email = email.toLowerCase().trim();
+      
+      for (const team of teamsData) {
+        for (const member of team.members) {
+          if (member.email.toLowerCase().trim() === email) {
+            return team;
+          }
+        }
+      }
+      
+      return null;
+    }
+
+    // Display team information
+    function displayTeamInfo(team) {
+      const teamInfo = document.getElementById('teamInfo');
+      const teamName = document.getElementById('teamName');
+      const memberCount = document.getElementById('memberCount');
+      const teamMembers = document.getElementById('teamMembers');
+      const noTeamFound = document.getElementById('noTeamFound');
+
+      // Hide no team message
+      noTeamFound.style.display = 'none';
+
+      // Populate team information
+      teamName.textContent = team.teamName;
+      memberCount.textContent = `${team.members.length} member${team.members.length !== 1 ? 's' : ''}`;
+
+      // Clear previous members
+      teamMembers.innerHTML = '';
+
+      // Add team members
+      team.members.forEach((member, index) => {
+        const memberDiv = document.createElement('div');
+        memberDiv.className = 'team-member';
+        memberDiv.innerHTML = `
+          <div class="member-info">
+            <div class="member-name">
+              <i class="fas fa-user"></i>
+              <span>${member.name}</span>
+            </div>
+            <div class="member-contact">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>${member.email || 'Not provided'}</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>${member.phone || 'Not provided'}</span>
+              </div>
+            </div>
+          </div>
+        `;
+        teamMembers.appendChild(memberDiv);
+      });
+
+      // Show team info
+      teamInfo.style.display = 'block';
+      teamInfo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Show no team found message
+    function showNoTeamFound() {
+      const teamInfo = document.getElementById('teamInfo');
+      const noTeamFound = document.getElementById('noTeamFound');
+
+      teamInfo.style.display = 'none';
+      noTeamFound.style.display = 'block';
+      noTeamFound.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Form handling
+    const form = document.getElementById('teamCheckerForm');
+    const submitButton = form.querySelector('.auth-submit');
+    const buttonText = submitButton.querySelector('.button-text');
+    const loadingSpinner = submitButton.querySelector('.loading-spinner');
+    const formError = form.querySelector('.form-error');
+    const errorMessage = formError.querySelector('.error-message');
+
+    // Validation functions
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function showFieldError(field, message) {
+      const errorText = field.nextElementSibling;
+      errorText.textContent = message;
+      errorText.style.display = 'block';
+      field.classList.add('error');
+    }
+
+    function clearFieldError(field) {
+      const errorText = field.nextElementSibling;
+      errorText.textContent = '';
+      errorText.style.display = 'none';
+      field.classList.remove('error');
+    }
+
+    function showError(message) {
+      errorMessage.textContent = message;
+      formError.style.display = 'flex';
+      formError.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+
+    function hideError() {
+      formError.style.display = 'none';
+    }
+
+    function setLoading(isLoading) {
+      submitButton.disabled = isLoading;
+      buttonText.style.display = isLoading ? 'none' : 'block';
+      loadingSpinner.style.display = isLoading ? 'block' : 'none';
+    }
+
+    // Real-time validation
+    const emailInput = document.getElementById('email');
+    emailInput.addEventListener('input', () => {
+      if (emailInput.value && !validateEmail(emailInput.value)) {
+        showFieldError(emailInput, 'Please enter a valid email address');
+      } else {
+        clearFieldError(emailInput);
+      }
+    });
+
+    // Form submission
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      hideError();
+
+      // Hide previous results
+      document.getElementById('teamInfo').style.display = 'none';
+      document.getElementById('noTeamFound').style.display = 'none';
+
+      let isValid = true;
+
+      // Clear all previous errors
+      form.querySelectorAll('.error-text').forEach(error => error.textContent = '');
+      form.querySelectorAll('input').forEach(field => field.classList.remove('error'));
+
+      // Validate email
+      const email = emailInput.value.trim();
+      if (!email) {
+        showFieldError(emailInput, 'Please enter your email address');
+        isValid = false;
+      } else if (!validateEmail(email)) {
+        showFieldError(emailInput, 'Please enter a valid email address');
+        isValid = false;
+      }
+
+      if (!isValid) {
+        showError('Please correct the errors in the form');
+        return;
+      }
+
+      try {
+        setLoading(true);
+
+        // Ensure teams data is loaded
+        if (teamsData.length === 0) {
+          await loadTeamsData();
+        }
+
+        // Find team
+        const team = findTeamByEmail(email);
+
+        if (team) {
+          displayTeamInfo(team);
+        } else {
+          showNoTeamFound();
+        }
+
+      } catch (error) {
+        showError('An error occurred while searching for your team. Please try again.');
+        console.error('Search error:', error);
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    // Clear field error when user starts typing
+    emailInput.addEventListener('input', () => clearFieldError(emailInput));
+
+    // Load teams data when page loads
+    document.addEventListener('DOMContentLoaded', loadTeamsData);
+  </script>
+
+  <style>
+    .team-checker-intro {
+      text-align: left;
+      margin-bottom: 2rem;
+      color: #c9c6bb;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .team-checker-intro p {
+      margin-bottom: 1rem;
+    }
+
+    .team-checker-box {
+      max-width: 800px;
+    }
+
+    .team-info-display {
+      margin-top: 2rem;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .team-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .team-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .team-header h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .member-count {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--border-radius-full);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .team-members {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .team-member {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--border-radius-md);
+      padding: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .team-member:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .member-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .member-name {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .member-name i {
+      color: var(--accent-color);
+    }
+
+    .member-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-left: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #c9c6bb;
+    }
+
+    .contact-item i {
+      width: 16px;
+      color: var(--accent-color);
+      opacity: 0.7;
+    }
+
+    .no-team-message {
+      margin-top: 2rem;
+      text-align: center;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .message-content {
+      background: rgba(255, 193, 7, 0.1);
+      border: 1px solid rgba(255, 193, 7, 0.3);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      color: #ffc107;
+    }
+
+    .message-content i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    .message-content h3 {
+      margin: 0 0 1rem 0;
+      font-size: 1.3rem;
+    }
+
+    .message-content p {
+      margin: 0;
+      color: #c9c6bb;
+      line-height: 1.5;
+    }
+
+    .form-error {
+      display: none;
+      align-items: center;
+      gap: var(--spacing-sm);
+      background: rgba(255, 0, 0, 0.1);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      padding: var(--spacing-sm);
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-md);
+      color: #ff6b6b;
+    }
+
+    .loading-spinner {
+      display: none;
+    }
+
+    .auth-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .error-text {
+      color: #ff6b6b;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    input.error {
+      border-color: #ff6b6b;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius-sm);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .team-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .member-contact {
+        margin-left: 0;
+      }
+
+      .contact-item {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</body>
+
+</html> 
