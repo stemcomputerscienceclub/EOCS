@@ -137,12 +137,9 @@
     // Load CSV data
     async function loadTeamsData() {
       try {
-        console.log('Loading teams data...'); // Debug log
         const response = await fetch('assets/data/teams.csv');
         const csvText = await response.text();
-        console.log('CSV loaded, length:', csvText.length); // Debug log
         teamsData = parseCSV(csvText);
-        console.log('Teams data loaded, count:', teamsData.length); // Debug log
       } catch (error) {
         console.error('Error loading teams data:', error);
         showError('Failed to load team data. Please try again later.');
@@ -187,7 +184,6 @@
         }
       }
 
-      console.log('Parsed teams:', teams); // Debug log
       return teams;
     }
 
@@ -217,21 +213,16 @@
     // Find team by email
     function findTeamByEmail(email) {
       email = email.toLowerCase().trim();
-      console.log('Searching for email:', email); // Debug log
       
       for (const team of teamsData) {
-        console.log('Checking team:', team.teamName); // Debug log
         for (const member of team.members) {
           const memberEmail = member.email.toLowerCase().trim();
-          console.log('  Member email:', memberEmail); // Debug log
           if (memberEmail === email) {
-            console.log('Found match!'); // Debug log
             return team;
           }
         }
       }
       
-      console.log('No team found for email:', email); // Debug log
       return null;
     }
 
