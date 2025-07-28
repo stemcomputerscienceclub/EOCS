@@ -33,6 +33,7 @@
       <a href="pages/about.html">About</a>
       <a href="pages/eligibility.html">Eligibility</a>
       <a href="pages/prizes.html">Prizes</a>
+      <a href="teams.html" class="active">Teams</a>
       <a href="pages/partners.html">Partners</a>
       <a href="pages/contact.html">Contact</a>
     </div>
@@ -41,6 +42,7 @@
       <a href="pages/about.html">About</a>
       <a href="pages/eligibility.html">Eligibility</a>
       <a href="pages/prizes.html">Prizes</a>
+      <a href="teams.html" class="active">Teams</a>
       <a href="pages/partners.html">Partners</a>
       <a href="pages/contact.html">Contact</a>
     </div>
@@ -135,9 +137,12 @@
     // Load CSV data
     async function loadTeamsData() {
       try {
+        console.log('Loading teams data...'); // Debug log
         const response = await fetch('assets/data/teams.csv');
         const csvText = await response.text();
+        console.log('CSV loaded, length:', csvText.length); // Debug log
         teamsData = parseCSV(csvText);
+        console.log('Teams data loaded, count:', teamsData.length); // Debug log
       } catch (error) {
         console.error('Error loading teams data:', error);
         showError('Failed to load team data. Please try again later.');
@@ -147,7 +152,6 @@
     // Parse CSV data
     function parseCSV(csvText) {
       const lines = csvText.split('\n');
-      const headers = lines[0].split(',');
       const teams = [];
 
       for (let i = 1; i < lines.length; i++) {
@@ -155,9 +159,9 @@
         if (!line) continue;
         
         const values = parseCSVLine(line);
-        if (values.length > 1 && values[0]) { // Skip empty team names
+        if (values.length > 1) {
           const team = {
-            teamName: values[0],
+            teamName: values[0] ? values[0].trim() : `Team ${i}`, // Use generic name if empty
             memberCount: parseInt(values[1]) || 0,
             members: []
           };
@@ -165,18 +169,25 @@
           // Parse team members (starting from index 2, groups of 3: name, email, phone)
           for (let j = 2; j < values.length; j += 3) {
             if (values[j] && values[j].trim()) { // Check if member name exists
+              const email = values[j + 1] ? values[j + 1].trim() : '';
+              const phone = values[j + 2] ? values[j + 2].trim() : '';
+              
               team.members.push({
                 name: values[j].trim(),
-                email: values[j + 1] ? values[j + 1].trim() : '',
-                phone: values[j + 2] ? values[j + 2].trim() : ''
+                email: email,
+                phone: phone
               });
             }
           }
 
-          teams.push(team);
+          // Only add teams that have at least one member
+          if (team.members.length > 0) {
+            teams.push(team);
+          }
         }
       }
 
+      console.log('Parsed teams:', teams); // Debug log
       return teams;
     }
 
@@ -206,15 +217,21 @@
     // Find team by email
     function findTeamByEmail(email) {
       email = email.toLowerCase().trim();
+      console.log('Searching for email:', email); // Debug log
       
       for (const team of teamsData) {
+        console.log('Checking team:', team.teamName); // Debug log
         for (const member of team.members) {
-          if (member.email.toLowerCase().trim() === email) {
+          const memberEmail = member.email.toLowerCase().trim();
+          console.log('  Member email:', memberEmail); // Debug log
+          if (memberEmail === email) {
+            console.log('Found match!'); // Debug log
             return team;
           }
         }
       }
       
+      console.log('No team found for email:', email); // Debug log
       return null;
     }
 
